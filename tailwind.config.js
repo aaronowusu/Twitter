@@ -6,7 +6,13 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "search-bg-color-dark": "#202327",
+        "search-bg-color-light": "#EFF3F4",
+        "search-text-color": "#71767B",
+      },
+    },
   },
   plugins: [],
 };
