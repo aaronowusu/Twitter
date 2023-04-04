@@ -11,6 +11,7 @@ module.exports = {
         "search-bg-color-dark": "#202327",
         "search-bg-color-light": "#EFF3F4",
         "search-text-color": "#71767B",
+        "twitter-blue": "#1B9BF0",
       },
     },
   },
