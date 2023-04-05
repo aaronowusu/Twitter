@@ -1,12 +1,8 @@
-import Layout from "@/components/explore/ExploreLayout";
+import withExploreLayout from "@/components/explore/withExploreLayout";
 import React from "react";
 
 const trending = () => {
-  return (
-    <Layout>
-      <div className="text-white">Trending</div>
-    </Layout>
-  );
+  return <div className="text-white">Trending</div>;
 };
 
-export default trending;
+export default withExploreLayout(trending);

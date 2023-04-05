@@ -1,11 +1,15 @@
-import Link from "next/link";
 import React from "react";
-
 import NavItem from "./NavigationItem";
 
-const Navigation = () => {
+const Navigation = ({ isSticky }) => {
   return (
-    <div className="navigation text-search-text-color text-md flex flex-row justify-around ">
+    <div
+      className={`navigation text-search-text-color text-md flex flex-row justify-around px-3 dark:border-search-text-color ${
+        isSticky
+          ? "fixed top-0 w-full bg-white dark:bg-black mb-4 pt-4 z-10 border-b bg-opacity-95 dark:bg-opacity-95"
+          : ""
+      }`}
+    >
       <div className="for-you">
         <NavItem href="/explore/tabs/for-you">For you</NavItem>
       </div>

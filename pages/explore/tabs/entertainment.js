@@ -1,12 +1,8 @@
-import Layout from "@/components/explore/ExploreLayout";
+import withExploreLayout from "@/components/explore/withExploreLayout";
 import React from "react";
 
 const entertainment = () => {
-  return (
-    <Layout>
-      <div className="text-white">Entertainment</div>
-    </Layout>
-  );
+  return <div className="text-white">Entertainment</div>;
 };
 
-export default entertainment;
+export default withExploreLayout(entertainment);

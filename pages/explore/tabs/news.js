@@ -1,12 +1,8 @@
-import Layout from "@/components/explore/ExploreLayout";
+import withExploreLayout from "@/components/explore/withExploreLayout";
 import React from "react";
 
 const news = () => {
-  return (
-    <Layout>
-      <div className="text-white">News</div>
-    </Layout>
-  );
+  return <div className="text-white">News</div>;
 };
 
-export default news;
+export default withExploreLayout(news);
