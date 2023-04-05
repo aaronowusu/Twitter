@@ -1,12 +1,31 @@
-import Layout from "@/components/explore/ExploreLayout";
+import withExploreLayout from "@/components/explore/withExploreLayout";
 import React from "react";
+import dummyData from "@/model/for-you";
+import List from "@/components/explore/Lists/ListItem";
+import PremierLeague from "@/components/explore/Lists/PremierLeague";
 
 const forYou = () => {
   return (
-    <Layout>
-      <div className="text-white">For you</div>
-    </Layout>
+    <>
+      <PremierLeague />
+      <div className="text-white">
+        <ul>
+          {dummyData.map((item) => {
+            return (
+              <List
+                key={item.id}
+                title={item.title}
+                likes={item.likes}
+                header="Trending in the United Kingdom"
+              >
+                {item.title}
+              </List>
+            );
+          })}
+        </ul>
+      </div>
+    </>
   );
 };
 
-export default forYou;
+export default withExploreLayout(forYou);

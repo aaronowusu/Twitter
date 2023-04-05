@@ -1,17 +1,5 @@
-import ExploreHeader from "../components/explore/ExploreLayout";
-import Head from "next/head";
-
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Twitter</title>
-      </Head>
-      <ExploreHeader />
-      <main></main>
-      <footer></footer>
-    </>
-  );
+  return;
 }
 
 export async function getServerSideProps() {
