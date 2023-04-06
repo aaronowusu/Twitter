@@ -6,7 +6,7 @@ const Menu = () => {
   };
   return (
     <div
-      className="nav__menu cursor-pointer w-[32px] h-[32px]"
+      className="nav__menu cursor-pointer ms:w-[15px] ms:h-[15px] mmd:w-[32px] mmd:h-[32px]"
       onClick={menuClickedHandler}
     >
       <svg

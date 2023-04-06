@@ -15,6 +15,12 @@ module.exports = {
         "chelsea-blue": "#014794",
         "liverpool-red": "#C80F2E",
       },
+      screens: {
+        "ms": "320px",
+        "mlg":"425px",
+        "mmd":"375px",
+        "max-mmd":"375px",
+      },
     },
   },
   plugins: [],
