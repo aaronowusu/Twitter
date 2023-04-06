@@ -14,6 +14,9 @@ module.exports = {
         "twitter-blue": "#1B9BF0",
         "chelsea-blue": "#014794",
         "liverpool-red": "#C80F2E",
+        "lal-purple":"#552482",
+        "lal-text-purple":"#AF9CC3",
+       
       },
       screens: {
         "ms": "320px",
