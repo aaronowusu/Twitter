@@ -23,7 +23,7 @@ const SearchBar = () => {
   return (
     <form onSubmit={submitHandler} >
       <div
-        className={`nav__searchbar w-full flex items-center rounded-3xl border bg-search-bg-color-light dark:bg-search-bg-color-dark ${
+        className={`nav__searchbar ms:w-auto w-full flex items-center rounded-3xl border bg-search-bg-color-light dark:bg-search-bg-color-dark ${
           isFocused ? "border-blue-500" : "border dark:border-black"
         }`}
       >
@@ -36,7 +36,7 @@ const SearchBar = () => {
           type="text"
           placeholder="Search Twitter"
           ref={inputRef}
-          className="w-full py-[4px] px-[12px] text-black dark:text-white bg-transparent focus:outline-none"
+          className=" w-full px-0 text-xs mmd:text-base py-[4px] mmd:px-[12px] text-black dark:text-white bg-transparent focus:outline-none"
           onFocus={handleFocus}
           onBlur={handleBlur}
         />

@@ -30,8 +30,8 @@ const ExploreLayout = (props) => {
         <title>Twitter</title>
       </Head>
       <div className="flex flex-col h-screen dark:bg-black bg-white">
-        <header className="border-b dark:border-search-text-color">
-          <div className="nav h-[100px] w-full bg-white dark:bg-black">
+        <header className="border-b dark:border-search-text-color w-full">
+          <div className="nav h-[85px] mmd:h-[100px] w-full bg-white dark:bg-black">
             <div className="nav__header flex flex-row justify-around py-3 items-center align-middle">
               <Logo />
               <SearchBar />
