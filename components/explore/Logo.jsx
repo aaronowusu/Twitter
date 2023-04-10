@@ -8,7 +8,7 @@ const Logo = () => {
   };
   return (
     <div
-      className="nav__logo ms:w-[15px] ms:h-[15px] mmd:w-[32px] mmd:h-[32px] dark:bg-blue cursor-pointer"
+      className="md:hidden nav__logo ms:w-[20px] ms:h-[20px] mmd:w-[30px] mmd:h-[30px] dark:bg-blue cursor-pointer"
       onClick={logoClickHandler}
     >
       <svg

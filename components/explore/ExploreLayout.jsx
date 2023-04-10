@@ -1,10 +1,12 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import Logo from "./Logo";
 import Menu from "./Menu";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 import Head from "next/head";
+import Sidebar from "./Sidebar";
+import Widgets from "./Widgets";
 
 const ExploreLayout = (props) => {
   const [isSticky, setIsSticky] = useState(false);
@@ -14,11 +16,9 @@ const ExploreLayout = (props) => {
     setIsSticky(scrollTop > 40);
   };
 
-  // Add a scroll event listener to the window
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -29,23 +29,27 @@ const ExploreLayout = (props) => {
       <Head>
         <title>Twitter</title>
       </Head>
-      <div className="flex flex-col h-screen dark:bg-black bg-white">
-        <header className="border-b dark:border-search-text-color w-full">
-          <div className="nav h-[85px] mmd:h-[100px] w-full bg-white dark:bg-black">
-            <div className="nav__header flex flex-row justify-around py-3 items-center align-middle">
-              <Logo />
-              <SearchBar />
-              <Menu />
+      <div className="pageLayout flex flex-row overflow-auto ">
+        <Sidebar />
+        <div className=" main max-w-xl 2xl:max-w-3xl overflow-y-auto flex-[2] flex-col h-full dark:bg-black bg-white md:border-x border-search-text-color">
+          <header className="border-b dark:border-search-text-color w-full">
+            <div className="nav h-[85px] mmd:h-[100px] md:h-[118px] w-full bg-white dark:bg-black justify-start">
+              <div className="nav__header flex flex-row ms:justify-around   py-3 items-center align-middle">
+                <Logo />
+                <SearchBar />
+                <Menu />
+              </div>
+              <Navigation isSticky={isSticky} />
             </div>
-            <Navigation isSticky={isSticky} />
+          </header>
+
+          <div className="dark:bg-black ms:pb-12 md:pb-44 mx-3 ">
+            {props.children}
           </div>
-        </header>
 
-        <div className="flex-1 dark:bg-black border-b dark:border-search-text-color pb-12 mx-3">
-          {props.children}
+          <Footer />
         </div>
-
-        <Footer />
+        <Widgets />
       </div>
     </>
   );

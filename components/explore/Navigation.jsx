@@ -6,7 +6,7 @@ const Navigation = ({ isSticky }) => {
     <div
       className={`navigation text-search-text-color text-xs mmd:text-sm mlg:text-base flex flex-row justify-around px-[20px] dark:border-search-text-color ${
         isSticky
-          ? "fixed top-0 w-full ms:h-[50px] mmd:h-[56px] bg-white dark:bg-black mb-4 pt-4 z-10 border-b bg-opacity-95 dark:bg-opacity-95"
+          ? `fixed top-0  ms:w-full md:w-[511px] lg:w-[574px]  2xl:w-[766px] ms:h-[50px] mmd:h-[56px] bg-white dark:bg-black mb-4 pt-4 z-10 border-b bg-opacity-95 dark:bg-opacity-95`
           : ""
       }`}
     >
