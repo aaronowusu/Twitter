@@ -21,9 +21,9 @@ const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={submitHandler} >
+    <form onSubmit={submitHandler} className=" md:w-3/4" >
       <div
-        className={`nav__searchbar ms:w-auto w-full flex items-center rounded-3xl border bg-search-bg-color-light dark:bg-search-bg-color-dark ${
+        className={`nav__searchbar ms:w-auto w-full md:py-2 flex items-center rounded-3xl border bg-search-bg-color-light dark:bg-search-bg-color-dark ${
           isFocused ? "border-blue-500" : "border dark:border-black"
         }`}
       >

@@ -1,12 +1,13 @@
 import React from "react";
 
+
 const Menu = () => {
   const menuClickedHandler = () => {
     // show sign in modal
   };
   return (
     <div
-      className="nav__menu cursor-pointer w-[20px] h-[20px]"
+      className="nav__menu cursor-pointer w-[20px] h-[20px] "
       onClick={menuClickedHandler}
     >
       <svg
