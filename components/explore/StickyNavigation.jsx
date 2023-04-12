@@ -5,7 +5,7 @@ import Menu from "./Menu";
 
 const StickyNavigation = () => {
   return (
-    <div className="fixed top-0  ms:w-full md:w-[511px] lg:w-[574px]  2xl:w-[766px] ms:h-[50px] mmd:h-[56px] bg-white dark:bg-black mb-4 pt-4 z-10 border-b opacity-98 ">
+    <div className="fixed ms:hidden md:block top-0  ms:w-full md:w-[511px] lg:w-[574px]  2xl:w-[766px] ms:h-[50px] mmd:h-[56px] bg-white dark:bg-black mb-4 pt-4 z-10 border-b opacity-98 ">
       <div className="flex flex-col">
         <header className="border-b dark:border-search-text-color w-full">
           <div className="nav h-[85px] mmd:h-[100px] md:h-[118px] w-full bg-white dark:bg-black justify-start">
