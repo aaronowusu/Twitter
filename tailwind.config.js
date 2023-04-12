@@ -16,6 +16,7 @@ module.exports = {
         "liverpool-red": "#C80F2E",
         "lal-purple":"#552482",
         "lal-text-purple":"#AF9CC3",
+        "hover-grey":"#191A1A"
        
       },
       screens: {
