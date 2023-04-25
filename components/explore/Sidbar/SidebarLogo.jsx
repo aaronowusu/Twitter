@@ -8,7 +8,7 @@ const Logo = () => {
   };
   return (
     <div
-      className="logo w-[50px] h-[50px]  flex items-center justify-center rounded-full hover:bg-hover-grey "
+      className="logo w-[50px] h-[50px]  flex items-center justify-center rounded-full dark:hover:bg-search-bg-color-dark hover:bg-search-bg-color-light "
       onClick={logoClickHandler}
     >
       <div className="nav__logo ms:w-[20px] ms:h-[20px] mmd:w-[30px] mmd:h-[30px] dark:bg-blue cursor-pointer ">

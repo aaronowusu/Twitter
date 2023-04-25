@@ -10,7 +10,7 @@ const SettingsTab = () => {
   };
   return (
     <div
-      className="settings  md:w-[50px] md:h-[50px] lg:w-auto lg:h-auto flex flex-row items-center justify-center rounded-full hover:bg-hover-grey cursor-pointer"
+      className="settings  md:w-[50px] md:h-[50px] lg:w-auto lg:h-auto flex flex-row items-center justify-center rounded-full dark:hover:bg-search-bg-color-dark hover:bg-search-bg-color-light cursor-pointer"
       onClick={settingsClickHandler}
     >
       <div className="lg:pl-3">

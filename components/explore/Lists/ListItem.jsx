@@ -3,7 +3,7 @@ import Menu from "./Menu";
 
 const List = (props) => {
   return (
-    <div className=".container flex flex-row justify-between mx-2 mb-4">
+    <div className=".container flex flex-row justify-between mx-2 mb-4 dark:hover:bg-list-hover hover:bg-search-bg-color-light hover:cursor-pointer">
       <div className=".info flex flex-col w-3/4">
         <div className=".trending text-xs mmd:text-sm text-search-text-color">
           {props.header}

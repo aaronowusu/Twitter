@@ -21,7 +21,7 @@ const Footer = () => {
             People on Twitter are the first to know.
           </span>
         </div>
-        <div className="buttons">
+        <div className="buttons ">
           <Button className="bg-transparent border text-white">Log in</Button>
           <Button className="bg-white">Sign up</Button>
         </div>
