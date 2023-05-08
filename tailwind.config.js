@@ -18,6 +18,7 @@ module.exports = {
         "lal-text-purple":"#AF9CC3",
         "hover-grey":"#191A1A",
         "list-hover":"#040404",
+        "widget-border":"#2F3336",
        
       },
       screens: {
