@@ -1,4 +1,4 @@
-import withExploreLayout from "@/components/explore/withExploreLayout";
+
 import React from "react";
 import List from "@/components/explore/Lists/ListItem";
 import dummyData from "@/model/trending";
@@ -31,4 +31,4 @@ const trending = () => {
   );
 };
 
-export default withExploreLayout(trending);
+export default trending;  

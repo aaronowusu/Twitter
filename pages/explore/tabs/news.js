@@ -1,4 +1,3 @@
-import withExploreLayout from "@/components/explore/withExploreLayout";
 import React from "react";
 import List from "@/components/explore/Lists/ListItem";
 import dummyData from "@/model/news";
@@ -28,4 +27,4 @@ const news = () => {
   );
 };
 
-export default withExploreLayout(news);
+export default news;
