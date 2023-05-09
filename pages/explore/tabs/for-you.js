@@ -1,4 +1,4 @@
-import withExploreLayout from "@/components/explore/withExploreLayout";
+
 import React from "react";
 import dummyData from "@/model/for-you";
 import List from "@/components/explore/Lists/ListItem";
@@ -28,4 +28,4 @@ const forYou = () => {
   );
 };
 
-export default withExploreLayout(forYou);
+export default forYou;

@@ -5,7 +5,7 @@ import Menu from "./Menu";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 import Head from "next/head";
-import Sidebar from "./Sidbar/Sidebar";
+import Sidebar from "./Sidebar/Sidebar";
 import Widgets from "../Widget/Widgets";
 
 const ExploreLayout = (props) => {
