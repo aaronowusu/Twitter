@@ -1,8 +1,10 @@
 import React from 'react';
 import SocialButton from './SocialButton';
 import WidgetFooter from './WidgetFooter';
+import useRegistrationModal from '@/hooks/useRegistrationModal';
 
 const Widgets = () => {
+  const registrationModal = useRegistrationModal();
   return (
     <>
       <div className='hidden md:flex md:flex-[0.5] lg:flex-1  h-screen'>
@@ -31,7 +33,7 @@ const Widgets = () => {
                   </SocialButton>
                 </div>
                 <div className='create_account font-bold'>
-                  <button className=' rounded-full w-full bg-white text-black h-[38px] px-2 py-1.5 dark:hover:opacity-80 hover:bg-[#E6E6E6] my-1 border border-[#EFF0F2]'>
+                  <button className=' rounded-full w-full bg-white text-black h-[38px] px-2 py-1.5 dark:hover:opacity-80 hover:bg-[#E6E6E6] my-1 border border-[#EFF0F2]' onClick={registrationModal.open}>
                     Create account
                   </button>
                 </div>

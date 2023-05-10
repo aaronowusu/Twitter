@@ -6,12 +6,12 @@ import RegistrationModal from '@/components/Modals/RegistrationModal';
 function MyApp({ Component, pageProps }) {
   return (
     <>
-    {/* <RegistrationModal isOpen={true} /> */}
-    <LoginModal />
+      {/* <RegistrationModal isOpen={true} /> */}
+      <LoginModal />
+      <RegistrationModal />
       <ExploreLayout>
         <Component {...pageProps} />;
       </ExploreLayout>
-
     </>
   );
 }

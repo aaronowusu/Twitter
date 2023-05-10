@@ -1,15 +1,17 @@
 import React from "react";
 import useLoginModal from '@/hooks/useLoginModal';
+import useRegistrationModal from "@/hooks/useRegistrationModal";
 
 const Button = (props) => {
   const loginModal = useLoginModal();
+  const registrationModal = useRegistrationModal();
 
   const handleClick = () => {
     if(props.children === 'Log in') {
       loginModal.open();
     }
     else if(props.children === 'Sign up') {
-      console.log('Sign up');
+      registrationModal.open();
     }
   }
  

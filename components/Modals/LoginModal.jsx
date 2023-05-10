@@ -3,12 +3,20 @@ import { AiOutlineClose } from 'react-icons/ai';
 import Logo from './Logo';
 import SocialButton from '../Widget/SocialButton';
 import useLoginModal from '@/hooks/useLoginModal';
+import useRegistrationModal from '@/hooks/useRegistrationModal';
 
 function LoginModal() {
   const loginModal = useLoginModal();
+  const registrationModal = useRegistrationModal();
   const [isDisabled, setDisabled] = useState(true);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+
+  const switchModalHandler = useCallback(() => {
+    loginModal.close();
+    registrationModal.open();
+  }, [loginModal, registrationModal]);
+
 
   const closeHandler = useCallback(() => {
     loginModal.close();
@@ -35,12 +43,12 @@ function LoginModal() {
   }, [loginModal]);
 
   useEffect(() => {
-    if (loginModal.isOpen) {
+    if (loginModal.isOpen || registrationModal.isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-  }, [loginModal]);
+  }, [loginModal,registrationModal]);
 
   if (!loginModal.isOpen) {
     return null;
@@ -143,7 +151,7 @@ function LoginModal() {
                   <span className='text-sm text-search-text-color'>
                     Don&apos;t have an account?{' '}
                   </span>
-                  <a href='#' className='text-sm text-twitter-blue'>
+                  <a href='#' className='text-sm text-twitter-blue' onClick={switchModalHandler}>
                     Sign up
                   </a>
                 </div>

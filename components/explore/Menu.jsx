@@ -1,9 +1,11 @@
 import React from 'react';
 import { IoSettingsOutline } from 'react-icons/io5';
+import useLoginModal from '@/hooks/useLoginModal';
 
 const Menu = () => {
+  const loginModal = useLoginModal();
   const menuClickedHandler = () => {
-    // show sign in modal
+    loginModal.open();
   };
   return (
     <div

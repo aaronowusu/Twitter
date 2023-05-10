@@ -1,17 +1,27 @@
 import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import Logo from './Logo';
-import SocialButton from '../Widget/SocialButton';
+import useRegistrationModal from '@/hooks/useRegistrationModal';
+import useLoginModal from '@/hooks/useLoginModal';
 
-function LoginModal({ onClose, onSubmit, isOpen, title }) {
+
+function RegistrationModal() {
+  const registrationModal = useRegistrationModal();
+  const loginModal = useLoginModal();
   const [isDisabled, setDisabled] = useState(true);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const nameRef = useRef(null);
   const usernameRef = useRef(null);
-  const closeHandler = useCallback(() => {
-    onClose();
-  }, [onClose]);
+
+  const switchModalHandler = useCallback(() => {
+    registrationModal.close();
+    loginModal.open();
+  }, [registrationModal, loginModal]);
+
+const closeHandler = useCallback(() => {
+    registrationModal.close();
+  }, [registrationModal]);
 
   const buttonHandler = useCallback(() => {
     if (
@@ -33,20 +43,26 @@ function LoginModal({ onClose, onSubmit, isOpen, title }) {
       const password = passwordRef.current.value;
       const name = nameRef.current.value;
       const username = usernameRef.current.value;
-      onSubmit(email, password, name, username);
+      
+      //Todo: add login logic
+    try {
+      registrationModal.close();
+    } catch (error) {
+      console.log(error);
+    }
     },
-    [onSubmit]
+    [registrationModal]
   );
 
   useEffect(() => {
-    if (isOpen) {
+    if (loginModal.isOpen || registrationModal.isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-  }, [isOpen]);
+  }, [loginModal,registrationModal]);
 
-  if (!isOpen) {
+  if (!registrationModal.isOpen) {
     return null;
   }
 
@@ -152,7 +168,7 @@ function LoginModal({ onClose, onSubmit, isOpen, title }) {
                   <span className='text-sm text-search-text-color'>
                     Have an account already?{' '}
                   </span>
-                  <a href='#' className='text-sm text-twitter-blue'>
+                  <a href='#' className='text-sm text-twitter-blue' onClick={switchModalHandler}>
                     Log in
                   </a>
                 </div>
@@ -165,4 +181,4 @@ function LoginModal({ onClose, onSubmit, isOpen, title }) {
   );
 }
 
-export default LoginModal;
+export default RegistrationModal;
