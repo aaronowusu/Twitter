@@ -2,14 +2,17 @@ import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import Logo from './Logo';
 import SocialButton from '../Widget/SocialButton';
+import useLoginModal from '@/hooks/useLoginModal';
 
-function LoginModal({ onClose, onSubmit, isOpen, title }) {
+function LoginModal() {
+  const loginModal = useLoginModal();
   const [isDisabled, setDisabled] = useState(true);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+
   const closeHandler = useCallback(() => {
-    onClose();
-  }, [onClose]);
+    loginModal.close();
+  }, [loginModal]);
 
   const buttonHandler = useCallback(() => {
     if (emailRef.current.value && passwordRef.current.value) {
@@ -19,25 +22,27 @@ function LoginModal({ onClose, onSubmit, isOpen, title }) {
     }
   }, [emailRef, passwordRef]);
 
-  const submitHandler = useCallback(
-    (event) => {
-      event.preventDefault();
-      const email = emailRef.current.value;
-      const password = passwordRef.current.value;
-      onSubmit(email, password);
-    },
-    [onSubmit]
-  );
+  const submitHandler = useCallback(async (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    //Todo: add login logic
+    try {
+      loginModal.close();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [loginModal]);
 
   useEffect(() => {
-    if (isOpen) {
+    if (loginModal.isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-  }, [isOpen]);
+  }, [loginModal]);
 
-  if (!isOpen) {
+  if (!loginModal.isOpen) {
     return null;
   }
 
