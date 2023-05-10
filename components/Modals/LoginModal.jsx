@@ -2,14 +2,25 @@ import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import Logo from './Logo';
 import SocialButton from '../Widget/SocialButton';
+import useLoginModal from '@/hooks/useLoginModal';
+import useRegistrationModal from '@/hooks/useRegistrationModal';
 
-function LoginModal({ onClose, onSubmit, isOpen, title }) {
+function LoginModal() {
+  const loginModal = useLoginModal();
+  const registrationModal = useRegistrationModal();
   const [isDisabled, setDisabled] = useState(true);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+
+  const switchModalHandler = useCallback(() => {
+    loginModal.close();
+    registrationModal.open();
+  }, [loginModal, registrationModal]);
+
+
   const closeHandler = useCallback(() => {
-    onClose();
-  }, [onClose]);
+    loginModal.close();
+  }, [loginModal]);
 
   const buttonHandler = useCallback(() => {
     if (emailRef.current.value && passwordRef.current.value) {
@@ -19,25 +30,27 @@ function LoginModal({ onClose, onSubmit, isOpen, title }) {
     }
   }, [emailRef, passwordRef]);
 
-  const submitHandler = useCallback(
-    (event) => {
-      event.preventDefault();
-      const email = emailRef.current.value;
-      const password = passwordRef.current.value;
-      onSubmit(email, password);
-    },
-    [onSubmit]
-  );
+  const submitHandler = useCallback(async (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    //Todo: add login logic
+    try {
+      loginModal.close();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [loginModal]);
 
   useEffect(() => {
-    if (isOpen) {
+    if (loginModal.isOpen || registrationModal.isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
-  }, [isOpen]);
+  }, [loginModal,registrationModal]);
 
-  if (!isOpen) {
+  if (!loginModal.isOpen) {
     return null;
   }
 
@@ -138,7 +151,7 @@ function LoginModal({ onClose, onSubmit, isOpen, title }) {
                   <span className='text-sm text-search-text-color'>
                     Don&apos;t have an account?{' '}
                   </span>
-                  <a href='#' className='text-sm text-twitter-blue'>
+                  <a href='#' className='text-sm text-twitter-blue' onClick={switchModalHandler}>
                     Sign up
                   </a>
                 </div>
