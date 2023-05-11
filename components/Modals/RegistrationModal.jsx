@@ -3,7 +3,9 @@ import { AiOutlineClose } from 'react-icons/ai';
 import Logo from './Logo';
 import useRegistrationModal from '@/hooks/useRegistrationModal';
 import useLoginModal from '@/hooks/useLoginModal';
-
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
+import { signIn } from 'next-auth/react';
 
 function RegistrationModal() {
   const registrationModal = useRegistrationModal();
@@ -19,7 +21,7 @@ function RegistrationModal() {
     loginModal.open();
   }, [registrationModal, loginModal]);
 
-const closeHandler = useCallback(() => {
+  const closeHandler = useCallback(() => {
     registrationModal.close();
   }, [registrationModal]);
 
@@ -37,19 +39,29 @@ const closeHandler = useCallback(() => {
   }, [emailRef, passwordRef, nameRef, usernameRef]);
 
   const submitHandler = useCallback(
-    (event) => {
+    async (event) => {
       event.preventDefault();
       const email = emailRef.current.value;
       const password = passwordRef.current.value;
       const name = nameRef.current.value;
       const username = usernameRef.current.value;
-      
-      //Todo: add login logic
-    try {
-      registrationModal.close();
-    } catch (error) {
-      console.log(error);
-    }
+      try {
+        await axios.post('/api/register', {
+          email,
+          password,
+          name,
+          username,
+        });
+        toast.success('Registration successful');
+        await signIn('credentials', {
+          email,
+          password,
+        });
+        registrationModal.close();
+      } catch (error) {
+        console.log(error);
+        toast.error('Something went wrong');
+      }
     },
     [registrationModal]
   );
@@ -60,7 +72,7 @@ const closeHandler = useCallback(() => {
     } else {
       document.body.style.overflow = '';
     }
-  }, [loginModal,registrationModal]);
+  }, [loginModal, registrationModal]);
 
   if (!registrationModal.isOpen) {
     return null;
@@ -168,7 +180,11 @@ const closeHandler = useCallback(() => {
                   <span className='text-sm text-search-text-color'>
                     Have an account already?{' '}
                   </span>
-                  <a href='#' className='text-sm text-twitter-blue' onClick={switchModalHandler}>
+                  <a
+                    href='#'
+                    className='text-sm text-twitter-blue'
+                    onClick={switchModalHandler}
+                  >
                     Log in
                   </a>
                 </div>
