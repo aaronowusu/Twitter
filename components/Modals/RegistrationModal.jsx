@@ -56,6 +56,7 @@ function RegistrationModal() {
         await signIn('credentials', {
           email,
           password,
+          redirect:'/home'
         });
         registrationModal.close();
       } catch (error) {

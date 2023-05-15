@@ -1,6 +1,6 @@
 import LoginModal from '@/components/Modals/LoginModal';
 import '../styles/globals.css';
-import ExploreLayout from '@/components/explore/ExploreLayout';
+import Layout from '@/components/explore/Layout';
 import RegistrationModal from '@/components/Modals/RegistrationModal';
 import { Toaster } from 'react-hot-toast';
 import { SessionProvider } from 'next-auth/react';
@@ -11,9 +11,9 @@ function MyApp({ Component, pageProps }) {
         <Toaster />
         <RegistrationModal />
         <LoginModal />
-        <ExploreLayout>
+        <Layout>
           <Component {...pageProps} />;
-        </ExploreLayout>
+        </Layout>
       </SessionProvider>
     </>
   );

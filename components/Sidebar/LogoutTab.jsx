@@ -3,7 +3,7 @@ import { BiLogOut } from 'react-icons/bi';
 import { signOut } from 'next-auth/react';
 import useCurrentUser from '@/hooks/useCurrentUser';
 
-const LogoutTab = () => {
+const LogoutTab = (props) => {
   const { currentUser } = useCurrentUser();
 
   const logoutClickHandler = () => {

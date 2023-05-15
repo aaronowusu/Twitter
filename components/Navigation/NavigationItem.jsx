@@ -8,7 +8,7 @@ const NavItem = (props) => {
 
   const activeBorder = (
     <div
-      className={`border border-twitter-blue pb-1 mt-2 rounded-md bg-twitter-blue`}
+      className={`border border-twitter-blue pb-1 mt-2 rounded-md bg-twitter-blue ${props.activeBorder}`}
     ></div>
   );
 
