@@ -6,7 +6,7 @@ import dummyData from "@/model/entertainment";
 const entertainment = () => {
   return (
     <>
-      <div className=".entertainment pt-2">
+      <div className=".entertainment mt-5">
         <div>
           <ul>
             {dummyData.map((item) => {

@@ -4,7 +4,7 @@ import Link from "next/link";
 const NavItem = (props) => {
   const router = useRouter();
 
-  const isActive = router.pathname === props.href
+  let isActive = router.pathname === props.href
 
   const activeBorder = (
     <div
@@ -12,9 +12,15 @@ const NavItem = (props) => {
     ></div>
   );
 
+  if (props.activeTab !== props.currentTab) {
+    isActive = false;
+
+  }
+
+
   return (
     <>
-      <Link href={props.href} className={isActive ? "dark:text-white font-medium text-black" : ""}>
+      <Link href={props.href} className={isActive ? "dark:text-white font-medium text-black" : ""} onClick={props.onClick}>
         {props.children}
       </Link>
       {isActive && activeBorder}

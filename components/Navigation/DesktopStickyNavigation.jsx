@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import Menu from "./Menu";
 import NavigationPanel from "./NavigationPanel";
 
-const StickyNavigation = () => {
+const DesktopStickyNavigation = () => {
   return (
     <div className="fixed ms:hidden md:block top-0  ms:w-full md:w-[511px] lg:w-[574px]  2xl:w-[766px] ms:h-[50px] mmd:h-[56px] bg-white dark:bg-black mb-4 pt-4 z-10 border-b opacity-98 ">
       <div className="flex flex-col">
@@ -28,4 +28,4 @@ const StickyNavigation = () => {
 };
 
 
-export default StickyNavigation;
+export default DesktopStickyNavigation;

@@ -6,13 +6,19 @@ import useLoginModal from '@/hooks/useLoginModal';
 import useRegistrationModal from '@/hooks/useRegistrationModal';
 import { signIn } from 'next-auth/react';
 import { toast } from 'react-hot-toast';
+import { useRouter } from 'next/router';
+import Spinner from '../Spinners/Spinner';
 
 function LoginModal() {
   const loginModal = useLoginModal();
+  const router = useRouter();
   const registrationModal = useRegistrationModal();
   const [isDisabled, setDisabled] = useState(true);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const spinnerHandler = () => {
+    return <Spinner />;
+  };
 
   const switchModalHandler = useCallback(() => {
     loginModal.close();
@@ -46,12 +52,14 @@ function LoginModal() {
         if (result?.error) {
           throw new Error(result.error);
         }
+        spinnerHandler();
+        router.push('/home');
         loginModal.close();
       } catch (error) {
         toast.error(error.message);
       }
     },
-    [loginModal]
+    [loginModal,router]
   );
 
   useEffect(() => {

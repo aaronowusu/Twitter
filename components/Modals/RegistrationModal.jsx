@@ -6,6 +6,8 @@ import useLoginModal from '@/hooks/useLoginModal';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import Spinner from '../Spinners/Spinner';
 
 function RegistrationModal() {
   const registrationModal = useRegistrationModal();
@@ -15,6 +17,10 @@ function RegistrationModal() {
   const passwordRef = useRef(null);
   const nameRef = useRef(null);
   const usernameRef = useRef(null);
+
+  const spinnerHandler = () => {
+    return <Spinner />;
+  };
 
   const switchModalHandler = useCallback(() => {
     registrationModal.close();
@@ -58,6 +64,7 @@ function RegistrationModal() {
           password,
           redirect:'/home'
         });
+        spinnerHandler();
         registrationModal.close();
       } catch (error) {
         console.log(error);

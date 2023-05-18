@@ -7,21 +7,38 @@ import Navigation from '../Navigation/Navigation';
 import Footer from './Footer';
 import Widgets from '../Widget/Widgets';
 import { useState, useEffect } from 'react';
+import useSticky from '@/hooks/useSticky';
+import useSmallScreen from '@/hooks/useSmallScreen';
+import DesktopStickyNavigation from '../Navigation/DesktopStickyNavigation';
 
 const LogoutLayout = (props) => {
-  const [isSticky, setIsSticky] = useState(false);
-  const handleScroll = () => {
-    const scrollTop = window.pageYOffset;
-    setIsSticky(scrollTop > 40);
-  };
-
+  const { setIsSticky } = useSticky();
+  const { setIsSmallScreen } = useSmallScreen();
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+
+    const handleMediaQueryChange = (e) => {
+      setIsSmallScreen(e.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
-  }, []);
+  }, [setIsSmallScreen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      setIsSticky(scrollTop > 40);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      setIsSticky(false);
+    };
+  }, [setIsSticky]);
 
   return (
     <div className='pageLayout flex flex-row overflow-auto '>
@@ -34,7 +51,8 @@ const LogoutLayout = (props) => {
               <SearchBar />
               <Menu />
             </div>
-            <Navigation isSticky={isSticky} />
+            <Navigation  />
+      <DesktopStickyNavigation />
           </div>
         </header>
 

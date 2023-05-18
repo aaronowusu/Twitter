@@ -2,12 +2,18 @@ import React from 'react';
 import { BiLogOut } from 'react-icons/bi';
 import { signOut } from 'next-auth/react';
 import useCurrentUser from '@/hooks/useCurrentUser';
+import { useRouter } from 'next/router';
+
 
 const LogoutTab = (props) => {
   const { currentUser } = useCurrentUser();
+  const router = useRouter();
 
-  const logoutClickHandler = () => {
-    signOut();
+  const logoutClickHandler = async () => {
+    await signOut();
+
+    props.showSpinner();
+    router.push('/');
   };
 
   if (!currentUser) {

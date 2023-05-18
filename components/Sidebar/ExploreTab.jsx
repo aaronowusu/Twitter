@@ -1,23 +1,36 @@
-import React, { use } from "react";
-import { HiOutlineSearch } from "react-icons/hi";
-import { FaHashtag } from "react-icons/fa";
-import { useRouter } from "next/router";
+import React, { useState } from 'react';
+import { HiOutlineSearch } from 'react-icons/hi';
+import { HiOutlineHashtag } from 'react-icons/hi';
+import { useRouter } from 'next/router';
+import Spinner from '../Spinners/Spinner';
 
 const ExploreTab = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const exploreClickHandler = () => {
-    router.push("/");
+  const makeBold = router.pathname === '/explore/tabs/for-you';
+  const exploreClickHandler = async () => {
+    setIsLoading(true);
+
+    await router.push('/');
+    setIsLoading(false);
   };
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
     <div
-      className="explore md:w-[50px] md:h-[50px] lg:w-auto lg:h-auto flex flex-row items-center justify-center rounded-full dark:hover:bg-search-bg-color-dark hover:bg-search-bg-color-light  cursor-pointer"
+      className='explore md:w-[40px] md:h-[40px] lg:w-[45px] lg:h-[45px] xl:w-auto xl:h-auto  flex flex-row items-center justify-center rounded-full dark:hover:bg-search-bg-color-dark hover:bg-search-bg-color-light  cursor-pointer xl:pl-4 '
       onClick={exploreClickHandler}
     >
-      <div className="lg:pl-3">
-        <HiOutlineSearch className=" lg:hidden dark:stroke-white w-[30px] h-[30px]" />
-        <FaHashtag className="hidden lg:block dark:fill-white w-[30px] h-[30px]" />
+      <div className=''>
+        <HiOutlineSearch className=' lg:hidden dark:stroke-white w-[26px] h-[26px]' />
+        <HiOutlineHashtag className='hidden lg:block dark:stroke-white w-[26px] h-[26px]' />
       </div>
-      <span className="dark:text-white hidden xl:inline font-bold pl-5  pr-8 py-3">
+      <span
+        className={`${
+          makeBold && 'font-bold'
+        } dark:text-white hidden xl:inline pl-3  pr-8 py-3`}
+      >
         Explore
       </span>
     </div>

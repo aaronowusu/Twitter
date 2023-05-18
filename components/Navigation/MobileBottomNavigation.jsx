@@ -1,16 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 
-const MobileNavigation = () => {
+const MobileBottomNavigation = () => {
   return (
-    <div className=' md:hidden bottom_navigation border-search-text-color border-t fixed inset-x-0 bottom-0 bg-black '>
+    <div className=' md:hidden bottom_navigation border-search-text-color border-t fixed inset-x-0 bottom-0 dark:bg-black bg-white '>
       <nav className='h-[52px] flex items-center'>
-        <div className='home_button w-1/4 flex justify-center'>
+        <div className='home_button w-1/4 flex justify-center hover:bg-search-bg-color-light dark:hover:bg-hover-grey h-full items-center'>
           <Link href='/home'>
             <svg
               viewBox='0 0 24 24'
               aria-hidden='true'
-              className='fill-white'
+              className='dark:fill-white fill-black'
               width='24'
               height='24'
             >
@@ -20,12 +20,12 @@ const MobileNavigation = () => {
             </svg>
           </Link>
         </div>
-        <div className='explore w-1/4 flex justify-center'>
+        <div className='explore w-1/4 flex justify-center hover:bg-search-bg-color-light dark:hover:bg-hover-grey h-full items-center'>
           <Link href='/explore/tabs/for-you'>
             <svg
               viewBox='0 0 24 24'
               aria-hidden='true'
-              className='fill-white'
+              className='dark:fill-white fill-black'
               width='24'
               height='24'
             >
@@ -36,12 +36,12 @@ const MobileNavigation = () => {
           </Link>
         </div>
 
-        <div className='notifications w-1/4 flex justify-center'>
+        <div className='notifications w-1/4 flex justify-center hover:bg-search-bg-color-light dark:hover:bg-hover-grey h-full items-center'>
           <Link href='#'>
             <svg
               viewBox='0 0 24 24'
               aria-hidden='true'
-              className='fill-white'
+              className='dark:fill-white fill-black'
               width='24'
               height='24'
             >
@@ -52,12 +52,12 @@ const MobileNavigation = () => {
           </Link>
         </div>
 
-        <div className='messages w-1/4 flex justify-center'>
+        <div className='messages w-1/4 flex justify-center hover:bg-search-bg-color-light dark:hover:bg-hover-grey h-full items-center'>
           <Link href='#'>
             <svg
               viewBox='0 0 24 24'
               aria-hidden='true'
-              className='fill-white'
+              className='dark:fill-white fill-black'
               width='24'
               height='24'
             >
@@ -72,4 +72,4 @@ const MobileNavigation = () => {
   );
 };
 
-export default MobileNavigation;
+export default MobileBottomNavigation;
