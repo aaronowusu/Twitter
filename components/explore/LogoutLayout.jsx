@@ -56,7 +56,7 @@ const LogoutLayout = (props) => {
           </div>
         </header>
 
-        <div className='ms:pb-12 md:pb-44 mx-3 md:mt-5'>{props.children}</div>
+        {props.children}
 
         <Footer />
       </div>

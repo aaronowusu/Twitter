@@ -5,7 +5,7 @@ const ProfileIcon = () => {
     <svg
       viewBox='0 0 24 24'
       aria-hidden='true'
-      className='dark:fill-white fill-black'
+      className='dark:fill-white fill-black '
       width='26'
       height='26'
     >

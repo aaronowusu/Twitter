@@ -59,7 +59,7 @@ const AccountMenu = () => {
               Log out of @{currentUser?.username}
             </span>
           </div>
-          <div className='popover-arrow absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 -bottom-5 border w-5 h-5 border-b border-r dark:border-hover-grey dark:bg-black rotate-45'></div>
+          <div className='popover-arrow absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 -bottom-5 border w-5 h-5 border-b border-r dark:border-hover-grey dark:bg-black bg-white rotate-45'></div>
         </div>
       </Popover.Body>
     </Popover>

@@ -26,7 +26,12 @@ module.exports = {
         mlg: '425px',
         mmd: '375px',
         'max-mmd': '375px',
+        'lg-ex1':'1071px'
       },
+      boxShadow: {
+        '3xl': 'rgba(255, 255, 255, 0.2) 0px 0px 15px, rgba(255, 255, 255, 0.15) 0px 0px 3px 1px',
+        '3xl-light':'rgba(101, 119, 134, 0.2) 0px 0px 15px, rgba(101, 119, 134, 0.15) 0px 0px 3px 1px',
+      }
     },
   },
 };

@@ -2,7 +2,7 @@ import React from 'react';
 
 const WidgetFooter = () => {
   return (
-    <div className='tos mb-4 ml-6 lg:w-[280px] xl:w-[370px]'>
+    <div className='tos mb-4  lg:w-[280px] xl:w-[320px]'>
       <nav className='flex flex-col items-center justify-center text-gray-500 text-xs'>
         <div className='flex flex-row space-x-2'>
           <a href='#' className=' hover:underline'>

@@ -4,10 +4,13 @@ import NavItem from '@/components/Navigation/NavigationItem';
 import { Avatar } from '@mui/material';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import { useRouter } from 'next/router';
+import useMobileDrawer from '@/hooks/useMobileDrawer';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('foryou');
   const { currentUser, LoggedIn } = useCurrentUser();
+  const profileImage = currentUser?.profileImage;
+  const mobileDrawer = useMobileDrawer();
   const router = useRouter();
   const [isSticky, setIsSticky] = useState(false);
   const handleScroll = () => {
@@ -41,9 +44,11 @@ const Home = () => {
                 <button className='focus:outline-none hover:opacity-80 transition items-center'>
                   <Avatar
                     alt='Default Profile Picture'
-                    src=''
+                    src={profileImage}
                     sx={{ width: 32, height: 32 }}
+                    onClick={mobileDrawer.open}
                   />
+           
                 </button>
               </div>
               <div className='logo '>
