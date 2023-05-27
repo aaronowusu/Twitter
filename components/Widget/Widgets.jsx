@@ -39,7 +39,7 @@ const Widgets = () => {
     }
   }, [currentUser]);
   useEffect(() => {
-    if (router.pathname === '/home') {
+    if (router.pathname === '/home' || router.pathname === '/users/[userId]') {
       setIsHomePage(true);
     } else {
       setIsHomePage(false);
@@ -145,12 +145,8 @@ const Widgets = () => {
 
           {isLogged && (
             <div className='follow  hidden lg:block mt-10'>
-              <div
-                className={` ${
-                  !isHomePage ? 'fixed top-5' : ''
-                }  bg-search-bg-color-light dark:bg-search-bg-color-dark rounded-2xl h-[280px] w-[320px]`}
-              >
-                <section className='flex flex-col py-3 '>
+              <div className={` ${!isHomePage ? 'fixed top-5' : ''}  `}>
+                <section className='flex flex-col py-3 bg-search-bg-color-light dark:bg-search-bg-color-dark rounded-2xl w-[320px]'>
                   <div className='text-left px-2'>
                     <h2 className='text-xl font-bold dark:text-white '>
                       Who to follow
@@ -165,7 +161,7 @@ const Widgets = () => {
                             userId={user.id}
                             name={user.name}
                             username={user.username}
-                            profileImage={user.profileImage }
+                            profileImage={user.profileImage}
                           />
                         );
                       })}
