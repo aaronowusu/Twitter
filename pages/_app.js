@@ -4,7 +4,7 @@ import Layout from '@/components/explore/Layout';
 import RegistrationModal from '@/components/Modals/RegistrationModal';
 import { Toaster } from 'react-hot-toast';
 import { SessionProvider } from 'next-auth/react';
-
+import EditModal from '@/components/Modals/EditModal';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 // Create a theme using the createTheme function
@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <SessionProvider session={pageProps.session}>
         <Toaster />
+        <EditModal />
         <RegistrationModal />
         <LoginModal />
         <Layout>

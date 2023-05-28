@@ -2,12 +2,12 @@ import { format } from 'date-fns';
 import React, { useMemo } from 'react';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import useUser from '@/hooks/useUser';
+import useEditModal from '@/hooks/useEditModal';
 
 const UserBio = ({ userId }) => {
   const { currentUser } = useCurrentUser();
   const { data: fetchedUser } = useUser(userId);
-  console.log(fetchedUser?.id);
-  console.log(currentUser?.id);
+  const editModal = useEditModal();
 
   const createdAt = useMemo(() => {
     if (!fetchedUser?.createdAt) {
@@ -20,7 +20,7 @@ const UserBio = ({ userId }) => {
     <div className=''>
       <div className='flex justify-end py-2 px-4'>
         {currentUser?.id === fetchedUser.id ? (
-          <button className='dark:bg-black border dark:border-widget-border dark:hover:opacity-70 hover:bg-search-bg-color-light dark:text-white font-bold py-2 px-4 rounded-full'>
+          <button className='dark:bg-black border dark:border-widget-border dark:hover:bg-hover-grey hover:bg-search-bg-color-light dark:text-white font-bold py-2 px-4 rounded-full' onClick={editModal.open}>
             Edit Profile
           </button>
         ) : (
