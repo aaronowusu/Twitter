@@ -20,7 +20,8 @@ function UserHero({ userId }) {
           <Avatar
             alt='Default Profile Picture'
             src={fetchedUser?.profileImage}
-            sx={{ width: 80, height: 80 }}
+            sx={{ width: 80, height: 80}}
+            className='border-1 dark:border-black border-white'
           />
         </div>
       </div>

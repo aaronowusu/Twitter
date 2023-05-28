@@ -17,10 +17,10 @@ const UserBio = ({ userId }) => {
   }, [fetchedUser?.createdAt]);
 
   return (
-    <div className='border-b border-search-text-color pb-4'>
+    <div className=''>
       <div className='flex justify-end py-2 px-4'>
         {currentUser?.id === fetchedUser.id ? (
-          <button className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full'>
+          <button className='dark:bg-black border dark:border-widget-border dark:hover:opacity-70 hover:bg-search-bg-color-light dark:text-white font-bold py-2 px-4 rounded-full'>
             Edit Profile
           </button>
         ) : (
@@ -57,11 +57,11 @@ const UserBio = ({ userId }) => {
         </div>
         <div className='flex flex-row items-center mt-4 gap-6 text-sm'>
           <div className='flex flex-row items-center gap-1'>
-            <p className='text-white font-normal'>{fetchedUser?.followingIds?.length} </p>
+            <p className='dark:text-white font-normal'>{fetchedUser?.followingIds?.length} </p>
             <p className='text-search-text-color'>Following</p>
           </div>
           <div className='flex flex-row items-center gap-1'>
-            <p className='text-white followingIds'>{fetchedUser?.followersCount || 0} </p>
+            <p className='dark:text-white followingIds'>{fetchedUser?.followersCount || 0} </p>
             <p className='text-search-text-color'>Followers</p>
           </div>
         </div>

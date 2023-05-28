@@ -106,7 +106,7 @@ const Widgets = () => {
         )}
         <div className='flex flex-col items-center mx-4'>
           {isHomePage && (
-            <div className='search__bar fixed top-0 pt-5 hidden w-[320px] lg:flex justify-center z-2 mb-3 min-h-[32px]  bg-black'>
+            <div className='search__bar fixed top-0 pt-5 hidden w-[320px] lg:flex justify-center z-2 mb-3 min-h-[32px]  dark:bg-black'>
               <SearchBar />
             </div>
           )}

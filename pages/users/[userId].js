@@ -6,6 +6,7 @@ import { ClipLoader } from 'react-spinners';
 import SpinnerModal from '@/components/Modals/SpinnerModal';
 import UserHero from '@/components/Users/UserHero';
 import UserBio from '@/components/Users/UserBio';
+import NavigationPanel from '@/components/Users/Navigation/NavigationPanel';
 const UserView = () => {
   const router = useRouter();
   const { userId } = router.query;
@@ -40,6 +41,9 @@ const UserView = () => {
       </div>
       <div className='userBio  py-2'>
       <UserBio userId={userId} />
+      </div>
+      <div className='navigation'>
+      <NavigationPanel  />
       </div>
 
 
