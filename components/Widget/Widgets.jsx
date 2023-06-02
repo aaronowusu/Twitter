@@ -21,7 +21,7 @@ const Widgets = () => {
   const { data: users = [] } = useUsers();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  console.log(users);
+ 
   const handleExpandDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen); // Toggle the drawer open/close state
   };

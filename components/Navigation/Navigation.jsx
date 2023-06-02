@@ -8,8 +8,7 @@ import useSmallScreen from '@/hooks/useSmallScreen';
 const Navigation = () => {
   const { isSticky } = useSticky();
   const { isSmallScreen } = useSmallScreen();
-  console.log('isSticky = ' + isSticky);
-  console.log('issmallscreen = ' + isSmallScreen);
+
 
   if (isSticky && isSmallScreen) {
     return <MobileStickyNavigation />;

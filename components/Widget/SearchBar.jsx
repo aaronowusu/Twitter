@@ -15,7 +15,7 @@ const SearchBar = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(inputRef.current.value);
+    // console.log(inputRef.current.value);
 
     // Replace main content with hard-coded text
   };

@@ -8,16 +8,17 @@ import UserHeroEdit from '../Users/Navigation/UserHeroEdit';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import useUser from '@/hooks/useUser';
 import { toast } from 'react-hot-toast';
-import { set } from 'date-fns';
 import axios from 'axios';
-
+import { getSession } from 'next-auth/react';
+ 
 function EditModal() {
   const router = useRouter();
   const { currentUser } = useCurrentUser();
   const { mutate: mutateFetchedUser } = useUser(currentUser?.id);
   const isMediumScreen = useMediaQuery('(max-width: 768px)');
   const editModal = useEditModal();
-  console.log(currentUser);
+  // const session = getSession();
+  // console.log(session);
 
   const [profileImage, setProfileImage] = useState(
     currentUser?.profileImage || ''
@@ -25,10 +26,7 @@ function EditModal() {
   const [coverImage, setCoverImage] = useState(currentUser?.coverImage || '');
   const [name, setName] = useState(currentUser?.name || '');
   const [username, setUsername] = useState('');
-  const [bio, setBio] = useState(currentUser?.bio || ' ');
-  const [location, setLocation] = useState('');
-  const [website, setWebsite] = useState('');
-  const [birthday, setBirthday] = useState('');
+  const [bio, setBio] = useState(currentUser?.bio || '');
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -38,24 +36,20 @@ function EditModal() {
       setName(currentUser.name);
       setUsername(currentUser.username);
       setBio(currentUser.bio);
-      // setLocation(currentUser.location);
-      // setWebsite(currentUser.website);
-      // setBirthday(currentUser.birthday);
     }
   }, [currentUser]);
 
   const closeHandler = () => {
     editModal.close();
-    console.log('close');
+   
   };
 
   const editBirthdayHandler = (e) => {
     e.preventDefault();
-    // setBirthday(e.target.value);
   };
   const submitHandler = useCallback(
-    async (event) => {
-      event.preventDefault();
+    async () => {
+      // event.preventDefault();
 
       try {
         setIsLoading(true);
@@ -132,7 +126,7 @@ function EditModal() {
           </div>
           {/*content*/}
           <div className='w-full mx-auto flex flex-col gap-10'>
-            <UserHeroEdit userId={currentUser?.id} />
+            <UserHeroEdit userId={currentUser?.id} setProfileImage={setProfileImage} profileImage={profileImage} coverImage={coverImage} setCoverImage={setCoverImage} />
             <div className='g'></div>
             <div className=' max-w-[600px] w-full px-8 m-auto'>
               <form className='flex flex-col gap-2'>

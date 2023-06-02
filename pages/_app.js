@@ -10,10 +10,10 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 // Create a theme using the createTheme function
 const theme = createTheme();
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <>
-      <SessionProvider session={pageProps.session}>
+      <SessionProvider session={session}>
         <Toaster />
         <EditModal />
         <RegistrationModal />
