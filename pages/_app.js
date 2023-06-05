@@ -1,19 +1,28 @@
 import LoginModal from '@/components/Modals/LoginModal';
 import '../styles/globals.css';
-import ExploreLayout from '@/components/explore/ExploreLayout';
+import Layout from '@/components/explore/Layout';
 import RegistrationModal from '@/components/Modals/RegistrationModal';
 import { Toaster } from 'react-hot-toast';
 import { SessionProvider } from 'next-auth/react';
-function MyApp({ Component, pageProps }) {
+import EditModal from '@/components/Modals/EditModal';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+// Create a theme using the createTheme function
+const theme = createTheme();
+
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <>
-      <SessionProvider session={pageProps.session}>
+      <SessionProvider session={session}>
         <Toaster />
+        <EditModal />
         <RegistrationModal />
         <LoginModal />
-        <ExploreLayout>
-          <Component {...pageProps} />;
-        </ExploreLayout>
+        <Layout>
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </Layout>
       </SessionProvider>
     </>
   );

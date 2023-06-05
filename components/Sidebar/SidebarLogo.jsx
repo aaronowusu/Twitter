@@ -1,9 +1,15 @@
 import React from "react";
 import { useRouter } from "next/router";
+import useCurrentUser from "@/hooks/useCurrentUser";
 
 const Logo = () => {
   const router = useRouter();
+  const { currentUser } = useCurrentUser();
   const logoClickHandler = () => {
+    if (currentUser) {
+      router.push("/home");
+      return;
+    }
     router.push("/");
   };
   return (

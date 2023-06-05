@@ -1,12 +1,12 @@
 import bcrypt from 'bcrypt';
-import NextAuth from 'next-auth';
+import NextAuth, { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import prisma from '@/libs/prismadb';
 import { toast } from 'react-hot-toast';
 toast
 
-export default NextAuth({
+export const authOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
@@ -17,9 +17,7 @@ export default NextAuth({
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          toast.error('Invalid credentials');
           throw new Error('Invalid credentials');
-          
         }
 
         const user = await prisma.user.findUnique({
@@ -43,7 +41,7 @@ export default NextAuth({
 
         return user;
       }
-    }),
+    })
   ],
   debug: process.env.NODE_ENV === 'development',
   session: {
@@ -53,4 +51,6 @@ export default NextAuth({
     secret: process.env.JWT_SECRET,
   },
   secret: process.env.SECRET,
-});
+};
+
+export default NextAuth(authOptions);

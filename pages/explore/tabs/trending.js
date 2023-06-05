@@ -1,15 +1,14 @@
-
-import React from "react";
-import List from "@/components/explore/Lists/ListItem";
-import dummyData from "@/model/trending";
+import React from 'react';
+import List from '@/components/explore/Lists/ListItem';
+import dummyData from '@/model/trending';
 
 const trending = () => {
   return (
     <>
-      <div className=" .header dark:text-white py-3 mx-2 text-xl font-bold">
-        United Kingdom trends
-      </div>
-      <div className=".trends">
+      <div className='.trends mt-5 ms:pb-12 md:pb-44 mx-3'>
+        <div className=' .header dark:text-white py-3 mx-2 text-xl font-bold'>
+          United Kingdom trends
+        </div>
         <div>
           <ul>
             {dummyData.map((item) => {
@@ -28,7 +27,7 @@ const trending = () => {
         </div>
       </div>
     </>
-  );
+  )
 };
 
-export default trending;  
+export default trending;

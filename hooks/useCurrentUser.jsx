@@ -6,10 +6,13 @@ const useCurrentUser = () => {
   const { data: session, status } = useSession();
   const isAuthenticated = status === 'authenticated';
 
-  const { data, error, isLoading } = useSWR(
+  const { data, error } = useSWR(
     isAuthenticated ? '/api/current' : null,
     fetcher
   );
+
+  const isAuthLoading = status === 'loading';
+  const isLoading = isAuthLoading || (!data && isAuthenticated);
 
   return {
     currentUser: data,
