@@ -6,12 +6,14 @@ import Popover from 'react-bootstrap/Popover';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import Spinner from '../Spinners/Spinner';
+import useUser from '@/hooks/useUser';
 
 const AccountMenu = () => {
   const { currentUser } = useCurrentUser();
+  const { data: fetchedUser } = useUser(currentUser?.id);
   const [showPopover, setShowPopover] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const profileImage = currentUser?.profileImage;
+  const profileImage = fetchedUser?.profileImage;
   const triggerRef = useRef(null);
   const router = useRouter();
 
@@ -27,7 +29,7 @@ const AccountMenu = () => {
     return <Spinner />;
 
   };
-  if (!currentUser) {
+  if (!fetchedUser) {
     return null;
   }
 
@@ -56,7 +58,7 @@ const AccountMenu = () => {
             onClick={logoutClickHandler}
           >
             <span className='font-bold dark:text-white text-black '>
-              Log out of @{currentUser?.username}
+              Log out of @{fetchedUser?.username}
             </span>
           </div>
           <div className='popover-arrow absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 -bottom-5 border w-5 h-5 border-b border-r dark:border-hover-grey dark:bg-black bg-white rotate-45'></div>
@@ -94,10 +96,10 @@ const AccountMenu = () => {
             />
             <div className='flex flex-col mx-3'>
               <span className='dark:text-white hidden xl:inline text-sm font-bold'>
-                {currentUser?.name}
+                {fetchedUser?.name}
               </span>
               <span className='hidden xl:inline text-sm dark:text-search-text-color'>
-                {`@${currentUser?.username}`}
+                {`@${fetchedUser?.username}`}
               </span>
             </div>
             <div className='ml-5'>

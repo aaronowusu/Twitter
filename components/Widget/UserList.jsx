@@ -21,9 +21,9 @@ const UserList = (props) => {
       <div className='flex flex-row justify-between items-center w-full '>
         <div className='username flex flex-col px-4'>
           <span className='font-bold text-sm dark:text-white'>
-            {props.name}
+            {fetchedUser?.name}
           </span>
-          <span className='text-xs text-gray-500'>@{props.username}</span>
+          <span className='text-xs text-gray-500'>@{fetchedUser?.username}</span>
         </div>
 
         <div className='follow_button flex flex-row items-center justify-center pr-6 '>

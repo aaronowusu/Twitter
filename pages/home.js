@@ -5,6 +5,7 @@ import { Avatar } from '@mui/material';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import { useRouter } from 'next/router';
 import useMobileDrawer from '@/hooks/useMobileDrawer';
+import Form from '@/components/Posts/Form';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('foryou');
@@ -90,28 +91,17 @@ const Home = () => {
           </div>
         </nav>
       </div>
-      <main className='flex justify-center items-center h-screen bg-twitter-blue px-4 '>
-        <div className={`${activeTab === 'foryou' ? 'block' : 'hidden'} `}>
-          <div className=''>
-            <svg viewBox='0 0 24 24' className='w-6 h-6 mr-1'>
-              <g>
-                <path
-                  fill='fill-white'
-                  d='M12.5,2.5c-5.5,0-10,4.5-10,10s4.5,10,10,10s10-4.5,10-10S18,2.5,12.5,2.5z M12.5,21.5c-4.7,0-8.5-3.8-8.5-8.5
-                      S7.8,4.5,12.5,4.5S21,8.3,21,13S17.2,21.5,12.5,21.5z'
-                ></path>
-                <path
-                  fill='fill-white'
-                  d='M12.5,7.5c-0.8,0-1.5,0.7-1.5,1.5v5c0,0.8,0.7,1.5,1.5,1.5s1.5-0.7,1.5-1.5v-5C14,8.2,13.3,7.5,12.5,7.5z'
-                ></path>
-                <circle fill='fill-white' cx='12.5' cy='16.5' r='1.5'></circle>
-              </g>
-            </svg>
-            <span className='text-sm'>For You</span>
+      <main className='flex justify-center items-start  h-screen  px-4 '>
+        <div className={` mt-[102px] ${activeTab === 'foryou' ? 'block' : 'hidden'} `}>
+          <div className='for you '>
+          <Form/>
+        
+            <span className='text-sm text-white '>For You</span>
           </div>
         </div>
-        <div className={`${activeTab === 'following' ? 'block' : 'hidden'}`}>
-          following
+        <div className={` mt-[102px] ${activeTab === 'following' ? 'block' : 'hidden'}`}>
+        <Form/>
+        <span className='text-sm text-white '>Following</span>
         </div>
       </main>
     </>

@@ -9,7 +9,7 @@ import useCurrentUser from '@/hooks/useCurrentUser';
 import useUser from '@/hooks/useUser';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
-import { getSession } from 'next-auth/react';
+
  
 function EditModal() {
   const router = useRouter();

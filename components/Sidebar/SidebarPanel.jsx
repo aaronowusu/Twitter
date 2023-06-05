@@ -13,36 +13,50 @@ import ExploreTab from './ExploreTab';
 import Logo from './SidebarLogo';
 import TweetButton from './TweetButton';
 import AccountMenu from './AccountMenu';
+import useCurrentUser from '@/hooks/useCurrentUser';
+import Spinner from '../Spinners/Spinner';
+import { useState } from 'react';
 
 const SidebarPanel = () => {
+  const { currentUser } = useCurrentUser();
+  const [isLoading, setIsLoading] = useState(false);
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+ 
   return (
     <>
       <div className='flex flex-col items-start justify-between h-full'>
         <div className='flex flex-col items-start justify-center'>
           <Logo />
-          <SideBarItem name='Home' icon={<HomeIcon />} href='/home' />
+          {currentUser&&<SideBarItem name='Home' icon={<HomeIcon />} href='/home' />}
           <ExploreTab />
           <SettingsTab />
-          <SideBarItem
+         { currentUser&& <SideBarItem
             name='Notifications'
             icon={<NotificationsIcon />}
             href='#'
-          />
-          <SideBarItem name='Messages' icon={<MessagesIcon />} href='#' />
-          <SideBarItem name='Lists' icon={<ListsIcon />} href='#' />
-          <SideBarItem name='Bookmarks' icon={<BookmarksIcon />} href='#' />
-          <SideBarItem
+          />}
+     {    currentUser&& <SideBarItem name='Messages' icon={<MessagesIcon />} href='#' />}
+          {currentUser&&<SideBarItem name='Lists' icon={<ListsIcon />} href='#' />}
+          {currentUser&&<SideBarItem name='Bookmarks' icon={<BookmarksIcon />} href='#' />}
+         { currentUser&&<SideBarItem
             name='Twitter Blue'
             icon={<TwitterBlueIcon />}
             href='#'
-          />
-          <SideBarItem name='Profile' icon={<ProfileIcon />} href='#' />
-          <SideBarItem name='More' icon={<MoreIcon />} href='#' />
-          <TweetButton />
+          />}
+       {  currentUser&& <SideBarItem
+            name='Profile'
+            icon={<ProfileIcon />}
+            href={`/users/${currentUser?.id}`}
+          />}
+          {currentUser&&<SideBarItem name='More' icon={<MoreIcon />} href='#' />}
+          {currentUser&&<TweetButton />}
         </div>
-        <div className='sticky bottom-4'>
+        { currentUser&&<div className='sticky bottom-4'>
           <AccountMenu />
-        </div>
+        </div>}
       </div>
     </>
   );
