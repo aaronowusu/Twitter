@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Logo from '@/components/DefaultLogo';
 import NavItem from '@/components/Navigation/NavigationItem';
-import { Avatar } from '@mui/material';
+import { Avatar, Divider } from '@mui/material';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import { useRouter } from 'next/router';
 import useMobileDrawer from '@/hooks/useMobileDrawer';
-import Form from '@/components/Posts/Form';
+import Tweet from '@/components/Posts/Tweet';
+import PostFeedF from '@/components/Posts/PostFeedF';
+import PostFeedFY from '@/components/Posts/PostFeedFY';
+
+import TweetButton from '@/components/Posts/TweetButton';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('foryou');
@@ -49,7 +53,6 @@ const Home = () => {
                     sx={{ width: 32, height: 32 }}
                     onClick={mobileDrawer.open}
                   />
-           
                 </button>
               </div>
               <div className='logo '>
@@ -91,18 +94,34 @@ const Home = () => {
           </div>
         </nav>
       </div>
-      <main className='flex justify-center items-start  h-screen  px-4 '>
-        <div className={` mt-[102px] ${activeTab === 'foryou' ? 'block' : 'hidden'} `}>
-          <div className='for you '>
-          <Form/>
-        
-            <span className='text-sm text-white '>For You</span>
+      <main className='flex justify-start items-start  h-screen w-full overflow-y-auto scrollbar-thin scrollbar-thumb-widget-border scrollbar-track-transparent '>
+        <div
+          className={` mt-[102px] w-full ${
+            activeTab === 'foryou' ? 'block' : 'hidden'
+          } `}
+        >
+          <div className='for you ms:hidden md:block py-3  px-4'>
+            {/* <span className='text-sm text-white '>For You</span> */}
+            <Tweet />
           </div>
+            <Divider className='bg-widget-border ' />
+            <PostFeedFY userId={currentUser?.id}/>
+            
         </div>
-        <div className={` mt-[102px] ${activeTab === 'following' ? 'block' : 'hidden'}`}>
-        <Form/>
-        <span className='text-sm text-white '>Following</span>
+        <div
+          className={` mt-[102px] w-full  ${
+            activeTab === 'following' ? 'block' : 'hidden'
+          }`}
+        >
+          <div className='following ms:hidden md:block py-3  px-4 '>
+            {/* <span className='text-sm text-white '>Following</span> */}
+            <Tweet />
+            </div>
+            <Divider className='bg-widget-border' />
+            <PostFeedF userId={currentUser?.id}/>
         </div>
+        
+        <TweetButton />
       </main>
     </>
   );

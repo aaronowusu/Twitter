@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link rel="shortcut icon" href="/twitter.png" />
       </Head>
-      <body className="bg-white dark:bg-black">
+      <body className="bg-white dark:bg-black ">
         <Main />
         <NextScript />
       </body>

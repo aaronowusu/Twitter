@@ -6,7 +6,7 @@ import PremierLeague from '@/components/explore/Lists/PremierLeague';
 const forYou = () => {
   return (
     <>
-      <div className='mt-5 ms:pb-12 md:pb-44 mx-3'>
+      <div className='mt-5 ms:pb-12 md:pb-44 mx-3 '>
         <PremierLeague />
         <div className='text-white'>
           <ul>

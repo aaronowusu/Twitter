@@ -15,7 +15,7 @@ function EditModal() {
   const router = useRouter();
   const { currentUser } = useCurrentUser();
   const { mutate: mutateFetchedUser } = useUser(currentUser?.id);
-  const isMediumScreen = useMediaQuery('(max-width: 768px)');
+  const isMediumScreen = useMediaQuery('(min-width: 768px)');
   const editModal = useEditModal();
   // const session = getSession();
   // console.log(session);
@@ -107,7 +107,7 @@ function EditModal() {
                   className='ms:hidden md:block text-white text-2xl'
                   size={20}
                 />
-                {isMediumScreen && (
+                {!isMediumScreen && (
                   <ArrowBackIcon className='text-white text-2xl' size={20} />
                 )}
               </button>

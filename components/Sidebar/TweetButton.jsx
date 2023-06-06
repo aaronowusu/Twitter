@@ -1,13 +1,15 @@
 import React from 'react';
 import useCurrentUser from '@/hooks/useCurrentUser';
+import useTweetModal from '@/hooks/useTweetModal';
 
 const TweetButton = () => {
     const { currentUser } = useCurrentUser();
+    const tweetModal = useTweetModal();
     if (!currentUser) {
         return null;
     }
     const clickHandler = () => {
-        console.log('tweet');
+        tweetModal.open();
     };
   return (
     <div className='tweetButton rounded-full my-4  xl:w-11/12 text-center bg-twitter-blue text-white  focus:outline-none md:w-[45px] md:h-[45px]  xl:h-auto  flex flex-row items-center justify-center  cursor-pointer xl:pl-4 hover:opacity-90' onClick={clickHandler}>
