@@ -35,7 +35,7 @@ const SidebarPanel = () => {
           <SettingsTab />
          { currentUser&& <SideBarItem
             name='Notifications'
-            icon={<NotificationsIcon />}
+            icon={<NotificationsIcon alert={currentUser?.hasNotification} />}
             href='#'
           />}
      {    currentUser&& <SideBarItem name='Messages' icon={<MessagesIcon />} href='#' />}

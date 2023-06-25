@@ -40,7 +40,7 @@ const useLike = ({ postId, userId }) => {
       mutateFetchedPosts();
 
       if (hasLiked) {
-        toast.success('Unliked post');
+        toast.error('Unliked post');
       }
       else{
         toast.success('Liked post');

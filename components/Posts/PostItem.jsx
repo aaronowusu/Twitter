@@ -32,7 +32,7 @@ const PostItem = ({ data, userId }) => {
   const onLike = useCallback(
     (event) => {
       event.stopPropagation();
-      console.log(hasLiked, currentUser)
+
       if (!currentUser) {
         return;
       }
