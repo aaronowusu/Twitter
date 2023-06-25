@@ -6,6 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import { SessionProvider } from 'next-auth/react';
 import EditModal from '@/components/Modals/EditModal';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import TweetModal from '@/components/Modals/TweetModal';
 
 // Create a theme using the createTheme function
 const theme = createTheme();
@@ -14,6 +15,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <>
       <SessionProvider session={session}>
+        <TweetModal />
         <Toaster />
         <EditModal />
         <RegistrationModal />
