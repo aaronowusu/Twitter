@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 import { useMemo } from 'react';
 import { Avatar } from '@mui/material';
 import Menu from '../explore/Lists/Menu';
-import { AiOutlineMessage } from 'react-icons/ai';
+
 const PostItem = ({ data, userId }) => {
   const router = useRouter();
   const { currentUser } = useCurrentUser();
@@ -14,17 +14,17 @@ const PostItem = ({ data, userId }) => {
   const goToUser = useCallback(
     (event) => {
       event.stopPropagation();
-      router.push(`/users/${data.user.id}`);
+      router.push(`/users/${data?.user?.id}`);
     },
-    [router, data.user.id]
+    [router, data?.user?.id]
   );
 
   const goToPost = useCallback(
     (event) => {
       event.stopPropagation();
-      router.push(`/posts/${data.id}`);
+      router.push(`/posts/${data?.id}`);
     },
-    [router, data.id]
+    [router, data?.id]
   );
 
   const onLike = useCallback((event) => {
