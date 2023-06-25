@@ -8,12 +8,14 @@ import UserHero from '@/components/Users/UserHero';
 import UserBio from '@/components/Users/UserBio';
 import NavigationPanel from '@/components/Users/Navigation/NavigationPanel';
 import PostFeedFY from '@/components/Posts/PostFeedFY';
+import { getSession } from 'next-auth/react';
+import usePosts from '@/hooks/usePosts';
 const UserView = () => {
   const router = useRouter();
   const { userId } = router.query;
 
   const { data: fetchedUser, isLoading } = useUser(userId);
- 
+  const {data:postsArray} = usePosts(userId);
   if (isLoading || !fetchedUser) {
     return (
       <div className='h-screen dark:text-white'>
@@ -21,6 +23,9 @@ const UserView = () => {
       </div>
     );
   }
+
+
+  const amountOfPosts = postsArray?.length || 0;
 
   return (
     <div className='h-screen dark:text-white overflow-y-auto scrollbar-thin scrollbar-thumb-widget-border scrollbar-track-transparent '>
@@ -34,27 +39,40 @@ const UserView = () => {
         <div className='name flex-1 flex-col'>
           <h1 className='text-lg dark:text-white'>{fetchedUser?.name}</h1>
           <div className='text-sm dark:text-search-text-color font-bold'>
-            0 Tweets
+            {amountOfPosts} Tweets
           </div>
         </div>
       </div>
       <div className='userHero px-4 py-2'>
-      <UserHero userId={userId} />
+        <UserHero userId={userId} />
       </div>
       <div className='userBio  py-2'>
-      <UserBio userId={userId} />
+        <UserBio userId={userId} />
       </div>
       <div className='navigation'>
-      <NavigationPanel  />
+        <NavigationPanel />
       </div>
       <div className=''>
-        <PostFeedFY userId={fetchedUser?.id}/>
+        <PostFeedFY userId={fetchedUser?.id} />
       </div>
-      
-
-
     </div>
   );
 };
 
 export default UserView;
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+}

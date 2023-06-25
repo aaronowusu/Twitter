@@ -17,7 +17,11 @@ import MobileDrawer from '../Navigation/MobileDrawer';
 
 const LoginLayout = (props) => {
   const router = useRouter();
-  const hideHeader = router.pathname === '/home' || router.pathname === '/users/[userId]' || router.pathname==='/posts/[postId]';
+  const hideHeader =
+    router.pathname === '/home' ||
+    router.pathname === '/users/[userId]' ||
+    router.pathname === '/posts/[postId]' ||
+    router.pathname === '/notifications';
   const { setIsSticky } = useSticky();
   const { setIsSmallScreen } = useSmallScreen();
   const { currentUser } = useCurrentUser();

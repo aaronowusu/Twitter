@@ -15,7 +15,7 @@ const ExploreTab = () => {
     setIsLoading(false);
   };
   if (isLoading) {
-    return <Spinner />;
+    // return <Spinner />;
   }
   return (
     <div

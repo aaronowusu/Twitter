@@ -1,14 +1,27 @@
-import usePosts from '@/hooks/usePosts'
-import React from 'react'
-import PostItem from './PostItem'
+import React from 'react';
+import usePosts from '@/hooks/usePosts';
+import useCurrentUser from '@/hooks/useCurrentUser';
+import PostItem from './PostItem';
 
-const PostFeedF = ({userId}) => {
-    const {data:posts=[]} = usePosts(userId)
+const PostFeedF = () => {
+  const { currentUser } = useCurrentUser();
+  const { data: posts } = usePosts();
+
+  const filteredPosts = currentUser
+    ? posts.filter(
+        (post) =>
+          currentUser.followingIds.includes(post.user.id) &&
+          post.user.id !== currentUser.id
+      )
+    : [];
+
   return (
-    <div className='text-white'>{posts.map((post) => (
-        <PostItem userId={userId} key={post.id} data={post}/>
-    ))}</div>
-  )
-}
+    <div className='text-white'>
+      {filteredPosts.map((post) => (
+        <PostItem userId={post.user.id} key={post.id} data={post} />
+      ))}
+    </div>
+  );
+};
 
-export default PostFeedF
+export default PostFeedF;

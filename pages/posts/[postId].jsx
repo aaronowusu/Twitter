@@ -6,6 +6,7 @@ import { ClipLoader } from 'react-spinners';
 import PostItem from '@/components/Posts/PostItem';
 import ReplyForm from '@/components/Posts/ReplyForm';
 import CommentFeed from '@/components/Posts/CommentFeed';
+import { getSession } from 'next-auth/react';
 
 function Post() {
   const router = useRouter();
@@ -51,3 +52,19 @@ function Post() {
 }
 
 export default Post;
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+}
