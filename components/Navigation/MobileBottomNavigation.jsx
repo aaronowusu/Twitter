@@ -37,7 +37,7 @@ const MobileBottomNavigation = () => {
         </div>
 
         <div className='notifications w-1/4 flex justify-center hover:bg-search-bg-color-light dark:hover:bg-hover-grey h-full items-center'>
-          <Link href='#'>
+          <Link href='/notifications'>
             <svg
               viewBox='0 0 24 24'
               aria-hidden='true'

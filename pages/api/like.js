@@ -30,6 +30,38 @@ export default async function handler(req, res) {
         updatedLikedIds.push(currentUser.id);
         }
 
+        try{
+            const post = await prisma.post.findUnique({
+                where: {
+                    id: postId,
+
+                }
+            });
+            if (post?.userId){
+                if (post.userId !== currentUser.id){
+                    await prisma.notification.create({
+                        data: {
+                            body: `${currentUser.name} liked your post`,
+                            userId: post.userId,
+                        },
+                    });
+                    await prisma.user.update({
+                        where: {
+                            id: post.userId,
+                        },
+                        data: {
+                            hasNotification: true,
+                        },
+                    });
+                }
+            
+            }
+
+        }
+        catch(err){
+            console.log(err);
+        }
+
     if (req.method === 'DELETE') {
         updatedLikedIds = updatedLikedIds.filter((id) => id !== currentUser.id);
         }

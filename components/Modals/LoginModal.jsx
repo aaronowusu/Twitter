@@ -7,7 +7,7 @@ import useRegistrationModal from '@/hooks/useRegistrationModal';
 import { signIn } from 'next-auth/react';
 import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/router';
-import Spinner from '../Spinners/Spinner';
+import SpinnerModal from './SpinnerModal';
 
 function LoginModal() {
   const loginModal = useLoginModal();
@@ -16,9 +16,7 @@ function LoginModal() {
   const [isDisabled, setDisabled] = useState(true);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const spinnerHandler = () => {
-    return <Spinner />;
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
   const switchModalHandler = useCallback(() => {
     loginModal.close();
@@ -43,23 +41,37 @@ function LoginModal() {
       const email = emailRef.current.value;
       const password = passwordRef.current.value;
 
+      const spinnerHandler = () => {
+        if (isLoading) {
+          return <SpinnerModal />;
+        } else {
+          return null;
+        }
+      };
+
       try {
+        setIsLoading(true);
+        {
+          isLoading && spinnerHandler();
+        }
+        loginModal.close();
         const result = await signIn('credentials', {
-          redirect: false,
           email,
           password,
+          callbackUrl: '/home',
+          redirect: false,
         });
         if (result?.error) {
           throw new Error(result.error);
         }
-        spinnerHandler();
-        router.push('/home');
-        loginModal.close();
+
+        await router.push(result?.url || '/home');
+        setIsLoading(false);
       } catch (error) {
         toast.error(error.message);
       }
     },
-    [loginModal,router]
+    [loginModal, isLoading, router]
   );
 
   useEffect(() => {
@@ -92,7 +104,6 @@ function LoginModal() {
             </div>
             <div className='basis-1/2'></div>
           </div>
-          {/*content*/}
           <div className='w-full mx-auto flex flex-col'>
             <div className='min-w-[364px] max-w-[364px] px-8 m-auto'>
               <div className='header'>
@@ -122,7 +133,6 @@ function LoginModal() {
               </div>
               <form onSubmit={submitHandler}>
                 <div className='email w-full px-0 py-2'>
-                  {/* add label*/}
                   <label className='text-sm text-search-text-color font-bold'>
                     Email Address
                   </label>
@@ -135,11 +145,10 @@ function LoginModal() {
                   />
                 </div>
                 <div className='password w-full px-0 py-2'>
-                  {/* add label*/}
                   <label className='text-sm text-search-text-color font-bold'>
                     Password
                   </label>
-                  {/* add button that shows password using toggle*/}
+
                   <input
                     type='password'
                     ref={passwordRef}

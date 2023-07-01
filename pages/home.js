@@ -8,8 +8,9 @@ import useMobileDrawer from '@/hooks/useMobileDrawer';
 import Tweet from '@/components/Posts/Tweet';
 import PostFeedF from '@/components/Posts/PostFeedF';
 import PostFeedFY from '@/components/Posts/PostFeedFY';
-
+import SpinnerModal from '@/components/Modals/SpinnerModal';
 import TweetButton from '@/components/Posts/TweetButton';
+import { useSession } from 'next-auth/react';
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('foryou');
@@ -18,8 +19,9 @@ const Home = () => {
   const mobileDrawer = useMobileDrawer();
   const router = useRouter();
   const [isSticky, setIsSticky] = useState(false);
+  const { status } = useSession();
   const handleScroll = () => {
-    const scrollTop = window.pageYOffset;
+    const scrollTop = window.scrollY;
     setIsSticky(scrollTop > 10);
   };
 
@@ -31,13 +33,20 @@ const Home = () => {
     };
   }, []);
 
-  if (!currentUser && !LoggedIn) {
-    router.replace('/explore/tabs/for-you');
-  }
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/');
+    }
+
+  }, [router,status]);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
+
+  if (!currentUser) {
+    return <SpinnerModal />;
+  }
 
   return (
     <>
@@ -101,12 +110,10 @@ const Home = () => {
           } `}
         >
           <div className='for you ms:hidden md:block py-3  px-4'>
-            {/* <span className='text-sm text-white '>For You</span> */}
             <Tweet />
           </div>
-            <Divider className='bg-widget-border ' />
-            <PostFeedFY userId={currentUser?.id}/>
-            
+          <Divider className='bg-widget-border ' />
+          <PostFeedFY userId={currentUser?.id} />
         </div>
         <div
           className={` mt-[102px] w-full  ${
@@ -114,13 +121,12 @@ const Home = () => {
           }`}
         >
           <div className='following ms:hidden md:block py-3  px-4 '>
-            {/* <span className='text-sm text-white '>Following</span> */}
             <Tweet />
-            </div>
-            <Divider className='bg-widget-border' />
-            <PostFeedF userId={currentUser?.id}/>
+          </div>
+          <Divider className='bg-widget-border' />
+          <PostFeedF userId={currentUser?.id} />
         </div>
-        
+
         <TweetButton />
       </main>
     </>

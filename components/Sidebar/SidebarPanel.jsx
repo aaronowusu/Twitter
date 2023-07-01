@@ -19,11 +19,7 @@ import { useState } from 'react';
 
 const SidebarPanel = () => {
   const { currentUser } = useCurrentUser();
-  const [isLoading, setIsLoading] = useState(false);
-
-  if (isLoading) {
-    return <Spinner />;
-  }
+  
  
   return (
     <>
@@ -35,8 +31,8 @@ const SidebarPanel = () => {
           <SettingsTab />
          { currentUser&& <SideBarItem
             name='Notifications'
-            icon={<NotificationsIcon />}
-            href='#'
+            icon={<NotificationsIcon alert={currentUser?.hasNotification} />}
+            href='/notifications'
           />}
      {    currentUser&& <SideBarItem name='Messages' icon={<MessagesIcon />} href='#' />}
           {currentUser&&<SideBarItem name='Lists' icon={<ListsIcon />} href='#' />}

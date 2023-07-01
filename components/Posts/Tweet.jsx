@@ -4,6 +4,7 @@ import useCurrentUser from '@/hooks/useCurrentUser';
 import useUser from '@/hooks/useUsers';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
+import usePosts from '@/hooks/usePosts';
 
 
 
@@ -11,7 +12,7 @@ const Tweet = () => {
   const { currentUser } = useCurrentUser();
   const [isPlaceholderVisible, setIsPlaceholderVisible] = useState(true);
   const [disabled, setDisabled] = useState(true);
-  const { mutate: mutatePosts } = useUser(currentUser?.id);
+  const { mutate: mutatePosts } = usePosts(currentUser?.id);
   const [body, setBody] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const handleInputChange = (event) => {
@@ -31,8 +32,6 @@ const Tweet = () => {
     setDisabled(body.trim().length === 0);
   }, [body]);
   const submitHandler = useCallback(async () => {
-    // event.preventDefault();
-
     try {
       setIsLoading(true);
       await axios.post('/api/posts', {
@@ -42,6 +41,7 @@ const Tweet = () => {
       toast.success('Tweet sent successfully');
       setBody('');
       mutatePosts();
+      setIsPlaceholderVisible(true);
   } catch (error) {
     console.log(error);
   } finally {

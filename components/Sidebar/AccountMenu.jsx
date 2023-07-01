@@ -5,8 +5,8 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import Spinner from '../Spinners/Spinner';
 import useUser from '@/hooks/useUser';
+import SpinnerModal from '../Modals/SpinnerModal';
 
 const AccountMenu = () => {
   const { currentUser } = useCurrentUser();
@@ -15,19 +15,17 @@ const AccountMenu = () => {
   const [isLoading, setIsLoading] = useState(false);
   const profileImage = fetchedUser?.profileImage;
   const triggerRef = useRef(null);
-  const router = useRouter();
+
 
   const logoutClickHandler = async () => {
     setIsLoading(true);
-    await signOut();
-    router.push('/');
-
+    {
+      isLoading && <SpinnerModal />;
+    }
+    await signOut({ callbackUrl: '/explore/tabs/for-you' });
     setIsLoading(false);
 
     setShowPopover(false);
-
-    return <Spinner />;
-
   };
   if (!fetchedUser) {
     return null;

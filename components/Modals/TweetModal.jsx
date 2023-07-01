@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useRef, use } from 'react';
+import React, { useCallback, useEffect, useState} from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useRouter } from 'next/router';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -10,12 +10,13 @@ import useTweetModal from '@/hooks/useTweetModal';
 import axios from 'axios';
 import { Avatar } from '@mui/material';
 import { Divider } from '@mui/material';
+import usePosts from '@/hooks/usePosts';
 
 
 function TweetModal() {
-  const router = useRouter();
   const { currentUser } = useCurrentUser();
-  const { mutate: mutatePosts } = useUser(currentUser?.id);
+  // const { mutate: mutatePosts } = useUser(currentUser?.id);
+  const { mutate: mutatePosts } = usePosts(currentUser?.id);
   const isMediumScreen = useMediaQuery('(min-width: 768px)');
   const tweetModal = useTweetModal();
   const [body, setBody] = useState('');
@@ -45,7 +46,6 @@ function TweetModal() {
   };
 
   const submitHandler = useCallback(async () => {
-    // event.preventDefault();
     console.log(body)
     try {
         setIsLoading(true);
@@ -59,7 +59,7 @@ function TweetModal() {
       console.log(error);
     } finally {
     }
-  }, [body, mutatePosts, tweetModal]);
+  }, [body, mutatePosts, tweetModal, ]);
 
   useEffect(() => {
     if (tweetModal.isOpen) {
@@ -103,7 +103,6 @@ function TweetModal() {
               </button>
             </div>
           </div>
-          {/*content*/}
           <div className='w-full mx-auto flex flex-col gap-10'>
             <div className=' max-w-[600px] w-full px-8 m-auto'>
               <div className='flex flex-row'>

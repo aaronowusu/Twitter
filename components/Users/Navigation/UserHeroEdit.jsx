@@ -32,7 +32,7 @@ function UserHeroEdit({ userId, setCoverImage, setProfileImage }) {
     const reader = new FileReader();
     reader.onload = () => {
       setCoverImage(reader.result);
-      setCoverImagePreview(reader.result); // Update the cover image preview immediately
+      setCoverImagePreview(reader.result); 
     };
     reader.readAsDataURL(file);
   };
@@ -49,7 +49,7 @@ function UserHeroEdit({ userId, setCoverImage, setProfileImage }) {
     const reader = new FileReader();
     reader.onload = () => {
       setProfileImage(reader.result);
-      setProfileImagePreview(reader.result); // Update the profile image preview immediately
+      setProfileImagePreview(reader.result); 
     };
     reader.readAsDataURL(file);
   };

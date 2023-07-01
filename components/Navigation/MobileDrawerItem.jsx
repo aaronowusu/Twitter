@@ -8,7 +8,7 @@ const DrawerItem = (props) => {
   const router = useRouter();
 
   return (
-    <div className='menuItem flex w-full h-full flex-row items-center    '>
+    <div className='menuItem flex w-full h-full flex-row items-center  ' onClick={props.onClick}>
       <span className='mr-6 '>{props.icon}</span>
 
       <span

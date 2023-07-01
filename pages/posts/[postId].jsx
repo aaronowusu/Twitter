@@ -5,14 +5,16 @@ import usePost from '@/hooks/usePost';
 import { ClipLoader } from 'react-spinners';
 import PostItem from '@/components/Posts/PostItem';
 import ReplyForm from '@/components/Posts/ReplyForm';
+import CommentFeed from '@/components/Posts/CommentFeed';
+import { getSession } from 'next-auth/react';
 
 function Post() {
   const router = useRouter();
   const { postId } = router.query;
-  console.log(typeof postId)
+  
 
   const { data: fetchedPost, isLoading } = usePost(postId);
-  console.log(fetchedPost)
+
 
   if (isLoading || !fetchedPost) {
     <div className='flex justify-center items-center h-full'>
@@ -40,9 +42,9 @@ function Post() {
       </div>
       <main className='flex justify-start items-start  h-screen w-full overflow-y-auto scrollbar-thin scrollbar-thumb-widget-border scrollbar-track-transparent '>
         <div className='mt-[53px] w-full'>
-
-        <PostItem data={fetchedPost} />
-        <ReplyForm />
+          <PostItem data={fetchedPost} />
+          <ReplyForm data={fetchedPost} />
+          <CommentFeed comments={fetchedPost?.comments}/>
         </div>
       </main>
     </>
@@ -50,3 +52,19 @@ function Post() {
 }
 
 export default Post;
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+}

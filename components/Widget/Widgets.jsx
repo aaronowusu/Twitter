@@ -21,13 +21,12 @@ const Widgets = () => {
   const { data: users = [] } = useUsers();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
- 
   const handleExpandDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen); // Toggle the drawer open/close state
+    setIsDrawerOpen(!isDrawerOpen);
   };
 
   const handleCloseDrawer = () => {
-    setIsDrawerOpen(false); // Close the drawer
+    setIsDrawerOpen(false);
   };
 
   const router = useRouter();
@@ -46,7 +45,15 @@ const Widgets = () => {
     }
   }, [router.pathname]);
   const firstThreeItems = dummyData.slice(0, 3);
-  const firstThreeUsers = users.slice(0, 3);
+  const filteredUsers = users.filter((user) => user.id !== currentUser?.id);
+
+  const filteredFollowSuggestions = filteredUsers.filter(
+    (user) => !currentUser?.followingIds.includes(user.id)
+  );
+
+  const firstThreeUsers = filteredFollowSuggestions.slice(0, 3);
+
+  const showWidget = firstThreeUsers.length === 0;
 
   return (
     <>
@@ -105,12 +112,12 @@ const Widgets = () => {
           </div>
         )}
         <div className='flex flex-col items-center mx-4'>
-          {isHomePage && (
+          {isHomePage && isLogged && (
             <div className='search__bar fixed top-0 pt-5 hidden w-[320px] lg:flex justify-center z-2 mb-3 min-h-[32px]  dark:bg-black'>
               <SearchBar />
             </div>
           )}
-          {isHomePage && (
+          {isHomePage && isLogged && (
             <div className='happening_now mt-20 w-[320px] hidden lg:block bg-search-bg-color-light dark:bg-search-bg-color-dark rounded-2xl h-[400px]'>
               <section className='flex flex-col py-3 '>
                 <div className='text-left px-2'>
@@ -146,37 +153,41 @@ const Widgets = () => {
           {isLogged && (
             <div className='follow  hidden lg:block mt-10'>
               <div className={` ${!isHomePage ? 'fixed top-5' : ''}  `}>
-                <section className='flex flex-col py-3 bg-search-bg-color-light dark:bg-search-bg-color-dark rounded-2xl w-[320px]'>
-                  <div className='text-left px-2'>
-                    <h2 className='text-xl font-bold dark:text-white '>
-                      Who to follow
-                    </h2>
-                  </div>
-                  <div className='users'>
-                    <ul>
-                      {firstThreeUsers.map((user) => {
-                        return (
-                          <UserList
-                            key={user.id}
-                            userId={user.id}
-                            name={user.name}
-                            username={user.username}
-                            profileImage={user.profileImage}
-                          />
-                        );
-                      })}
-                    </ul>
-                    <div className='px-4'>
-                      <Link href='' className='text-twitter-blue  text-sm  '>
-                        Show more
-                      </Link>
+                {!showWidget && (
+                  <section className='flex flex-col py-3 bg-search-bg-color-light dark:bg-search-bg-color-dark rounded-2xl w-[320px]'>
+                    <div className='text-left px-2'>
+                      <h2 className='text-xl font-bold dark:text-white '>
+                        Who to follow
+                      </h2>
                     </div>
-                  </div>
-                </section>
+                    <div className='users'>
+                      <ul>
+                        {firstThreeUsers.map((user) => {
+                          return (
+                            <UserList
+                              key={user.id}
+                              userId={user.id}
+                              name={user.name}
+                              username={user.username}
+                              profileImage={user.profileImage}
+                            />
+                          );
+                        })}
+                      </ul>
+                      <div className='px-4'>
+                        <Link href='' className='text-twitter-blue  text-sm  '>
+                          Show more
+                        </Link>
+                      </div>
+                    </div>
+                  </section>
+                )}
                 <div>
-                  <div className='mt-2'>
-                    <WidgetFooter />
-                  </div>
+                  {isHomePage && (
+                    <div className='mt-2'>
+                      <WidgetFooter />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

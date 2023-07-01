@@ -1,23 +1,17 @@
 import React from 'react';
 import { signOut } from 'next-auth/react';
 import useCurrentUser from '@/hooks/useCurrentUser';
-import { useRouter } from 'next/router';
-import LogoutIcon from '@mui/icons-material/Logout';
 import useMobileDrawer from '@/hooks/useMobileDrawer';
 
-const LogoutTab = (props) => {
+const LogoutTab = () => {
   const { currentUser } = useCurrentUser();
-  const mobileDrawer = useMobileDrawer();
-  const router = useRouter();
 
   const logoutClickHandler = async () => {
-    await signOut();
-    mobileDrawer.close();
-    router.push('/');
+    await signOut({ callbackUrl: '/explore/tabs/for-you' });
   };
 
   if (!currentUser) {
-    return null; // Don't render anything if the user is not signed in
+    return null;
   }
 
   return (
