@@ -11,7 +11,7 @@ import useLike from '@/hooks/useLike';
 const PostItem = ({ data, userId }) => {
   const router = useRouter();
   const { currentUser } = useCurrentUser();
-  const { hasLiked, toggleLike } = useLike({ postId: data?.id, userId });
+  const { hasLiked, toggleLike, likeCount} = useLike({ postId: data?.id, userId });
 
   const goToUser = useCallback(
     (event) => {
@@ -139,7 +139,8 @@ const PostItem = ({ data, userId }) => {
               onClick={onLike}
             >
               <span>{LikeIcon}</span>
-              <span>{data?.likedIds?.length || 0}</span>
+              { likeCount ? <span>{likeCount}</span> :<span>{data?.likes?.length || 0}</span>}
+
             </div>
 
             <div className='views'>

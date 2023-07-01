@@ -7,8 +7,7 @@ const PostFeedF = () => {
   const { currentUser } = useCurrentUser();
   const { data: posts } = usePosts();
 
-  const filteredPosts = currentUser
-    ? posts.filter(
+  const filteredPosts = currentUser && posts ? posts.filter(
         (post) =>
           currentUser.followingIds.includes(post.user.id) &&
           post.user.id !== currentUser.id

@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import useCurrentUser from './useCurrentUser';
 import usePost from './usePost';
 import usePosts from './usePosts';
@@ -9,6 +9,8 @@ const useLike = ({ postId, userId }) => {
   const { currentUser } = useCurrentUser();
   const { data: fetchedPost, mutate: mutateFetchedPost } = usePost(postId);
   const { mutate: mutateFetchedPosts } = usePosts(userId);
+
+  const [likeCount, setLikeCount] = useState(fetchedPost?.likedIds?.length || 0);
 
   const hasLiked = useMemo(() => {
     const list = fetchedPost?.likedIds || [];
@@ -41,18 +43,20 @@ const useLike = ({ postId, userId }) => {
 
       if (hasLiked) {
         toast.error('Unliked post');
-      }
-      else{
+        setLikeCount(likeCount - 1);
+      } else {
         toast.success('Liked post');
+        setLikeCount(likeCount + 1);
       }
     } catch (error) {
       console.log(error);
       toast.error('Failed to like post');
     }
-  }, [currentUser, hasLiked, mutateFetchedPosts, mutateFetchedPost, postId]);
+  }, [currentUser, hasLiked, likeCount, mutateFetchedPosts, mutateFetchedPost, postId]);
 
   return {
     hasLiked,
+    likeCount,
     toggleLike,
   };
 };

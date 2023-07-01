@@ -1,11 +1,16 @@
 import React from 'react';
 import { IoSettingsOutline } from 'react-icons/io5';
 import useLoginModal from '@/hooks/useLoginModal';
+import useCurrentUser from '@/hooks/useCurrentUser';
 
 const Menu = () => {
   const loginModal = useLoginModal();
+  const { currentUser } = useCurrentUser();
   const menuClickedHandler = () => {
-    loginModal.open();
+    if (!currentUser){
+      return loginModal.open();
+    }
+
   };
   return (
     <div

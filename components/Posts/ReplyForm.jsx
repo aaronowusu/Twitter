@@ -140,7 +140,7 @@ const ReplyForm = ({ data }) => {
           </div>
           <div className=' '>
             <button
-              className={`bg-twitter-blue ms:hidden md:block text-white rounded-full px-4 py-2 text-sm font-semibold ${
+              className={`bg-twitter-blue  text-white rounded-full px-4 py-2 text-sm font-semibold ${
                 disabled ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-80'
               }`}
               onClick={submitHandler}

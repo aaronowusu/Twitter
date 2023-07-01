@@ -43,7 +43,7 @@ const LoginLayout = (props) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset;
+      const scrollTop = window.scrollY;
       setIsSticky(scrollTop > 40);
     };
     window.addEventListener('scroll', handleScroll);

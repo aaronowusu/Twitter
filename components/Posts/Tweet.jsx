@@ -32,8 +32,6 @@ const Tweet = () => {
     setDisabled(body.trim().length === 0);
   }, [body]);
   const submitHandler = useCallback(async () => {
-    // event.preventDefault();
-
     try {
       setIsLoading(true);
       await axios.post('/api/posts', {

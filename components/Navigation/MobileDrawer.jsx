@@ -12,10 +12,24 @@ import BookmarksIcon from '../Sidebar/Icons/BookmarksIcon';
 import VerifiedOrgsIcon from '../Sidebar/Icons/VerifiedOrgsIcon';
 import FollowerRequestsIcon from '../Sidebar/Icons/FollowerRequestsIcon';
 import LogoutTab from '../Sidebar/LogoutTab';
+import useUser from '@/hooks/useUser';
+import { useCallback } from 'react';
+import { useRouter } from 'next/router';
 
 const MobileDrawer = () => {
+  const router = useRouter();
   const mobileDrawer = useMobileDrawer();
   const { currentUser } = useCurrentUser();
+  const { data: fetchedUser } = useUser(currentUser?.id);
+
+  const goToUser = useCallback(
+    async (event) => {
+      event.stopPropagation();
+      await router.push(`/users/${currentUser?.id}`);
+      mobileDrawer.close();
+    },
+    [router, currentUser?.id, mobileDrawer]
+  );
 
   return (
     <>
@@ -40,7 +54,7 @@ const MobileDrawer = () => {
             <div className='profile_pic flex justify-between items-center'>
               <div
                 className='avatar'
-                onClick={() => console.log('take me to profile')}
+                onClick={goToUser}
               >
                 <Avatar
                   alt='Profile Picture'
@@ -67,14 +81,14 @@ const MobileDrawer = () => {
             <div className='user_stats flex mt-3 justify-between'>
               <div className='flex'>
                 <div className='mr-5'>
-                  <span className='dark:text-white text-base font-bold'>0</span>
+                  <span className='dark:text-white text-base font-bold'>{currentUser?.followingIds.length}</span>
                   <span className='dark:text-search-text-color text-sm'>
                     {' '}
                     Following
                   </span>
                 </div>
                 <div>
-                  <span className='dark:text-white text-base font-bold'>0</span>
+                  <span className='dark:text-white text-base font-bold'>{ fetchedUser?.followersCount}</span>
                   <span className='dark:text-search-text-color text-sm'>
                     {' '}
                     Followers
@@ -84,7 +98,7 @@ const MobileDrawer = () => {
             </div>
           </div>
           <div className='profile_tab p-4 flex items-center dark:hover:bg-search-bg-color-dark hover:bg-search-bg-color-light cursor-pointer'>
-            <DrawerItem name='Profile' icon={<ProfileIcon />} href='#' />
+            <DrawerItem name='Profile' icon={<ProfileIcon />} onClick={goToUser} />
           </div>
           <div className='twitterBlue_tab p-4 flex items-center dark:hover:bg-search-bg-color-dark hover:bg-search-bg-color-light cursor-pointer'>
             <DrawerItem
