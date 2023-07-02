@@ -1,7 +1,7 @@
 import React from 'react';
 import { signOut } from 'next-auth/react';
 import useCurrentUser from '@/hooks/useCurrentUser';
-import useMobileDrawer from '@/hooks/useMobileDrawer';
+
 
 const LogoutTab = () => {
   const { currentUser } = useCurrentUser();

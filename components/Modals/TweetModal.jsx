@@ -15,7 +15,6 @@ import usePosts from '@/hooks/usePosts';
 
 function TweetModal() {
   const { currentUser } = useCurrentUser();
-  // const { mutate: mutatePosts } = useUser(currentUser?.id);
   const { mutate: mutatePosts } = usePosts(currentUser?.id);
   const isMediumScreen = useMediaQuery('(min-width: 768px)');
   const tweetModal = useTweetModal();

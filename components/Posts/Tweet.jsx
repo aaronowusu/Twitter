@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Avatar, Divider } from '@mui/material';
 import useCurrentUser from '@/hooks/useCurrentUser';
-import useUser from '@/hooks/useUsers';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import usePosts from '@/hooks/usePosts';

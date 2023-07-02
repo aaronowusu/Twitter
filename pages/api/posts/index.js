@@ -3,7 +3,7 @@ import prisma from '@/libs/prismadb';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST' && req.method !== 'GET') {
-    return res.status(405).end(); //Method Not Allowed
+    return res.status(405).end(); 
     
   }
 
@@ -53,6 +53,6 @@ export default async function handler(req, res) {
     }
   } catch (e) {
     console.log(e);
-    res.status(400).end(); //Bad Request
+    res.status(400).end(); 
   }
 }

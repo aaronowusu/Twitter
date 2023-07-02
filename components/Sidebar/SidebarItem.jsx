@@ -1,21 +1,13 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import { useState } from 'react';
-
-
 const SideBarItem = (props) => {
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
   const makeBold = router.pathname === props.href;
   const clickHandler = async () => {
-    setIsLoading(true);
-
     await router.push(props.href);
-    setIsLoading(false);
   };
 
-  
   return (
     <div
       className='sideBar__tab  md:w-[40px] md:h-[40px] lg:w-[45px] lg:h-[40px] xl:w-auto xl:h-auto flex flex-row items-center justify-center rounded-full dark:hover:bg-search-bg-color-dark hover:bg-search-bg-color-light cursor-pointer xl:pl-4'

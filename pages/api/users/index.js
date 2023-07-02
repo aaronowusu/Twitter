@@ -1,7 +1,7 @@
 import prisma from "@/libs/prismadb";
 export default async function handler(req, res) {
     if (req.method !== 'GET') {
-        return res.status(405).end(); //Method Not Allowed
+        return res.status(405).end(); 
     }
 
     try{

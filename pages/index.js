@@ -3,7 +3,6 @@ export default function Home() {
 }
 
 export async function getServerSideProps() {
-  // redirect to /explore/tabs/for-you
   return {
     redirect: {
       destination: "/explore/tabs/for-you",

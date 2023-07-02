@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter } from 'next/router';
 import usePost from '@/hooks/usePost';

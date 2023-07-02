@@ -1,5 +1,4 @@
 import React from "react";
-import NavItem from "./NavigationItem";
 import NavigationPanel from "./NavigationPanel";
 
 const NavigationTabs = () => {

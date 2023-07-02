@@ -1,13 +1,7 @@
 import React from 'react';
 
-const Drawer = ({ isOpen, onClose, onExpand }) => {
-  const handleExpand = () => {
-    if (isOpen) {
-      onClose(); // Close the drawer if it's already open
-    } else {
-      onExpand(); // Expand the drawer if it's closed
-    }
-  };
+const Drawer = ({ isOpen}) => {
+
 
   return (
     <div

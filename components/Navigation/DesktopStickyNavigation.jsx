@@ -1,5 +1,4 @@
 import React from 'react';
-import NavItem from './NavigationItem';
 import SearchBar from './SearchBar';
 import Menu from './Menu';
 import NavigationPanel from './NavigationPanel';

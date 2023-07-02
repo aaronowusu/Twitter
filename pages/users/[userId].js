@@ -2,7 +2,6 @@ import React from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter } from 'next/router';
 import useUser from '@/hooks/useUser';
-import { ClipLoader } from 'react-spinners';
 import SpinnerModal from '@/components/Modals/SpinnerModal';
 import UserHero from '@/components/Users/UserHero';
 import UserBio from '@/components/Users/UserBio';
