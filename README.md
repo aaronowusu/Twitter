@@ -63,9 +63,11 @@ To run this project locally, follow these steps:
 ## Screenshots and Screen Recordings
 
 ### Registration
+<img width="1439" alt="Register" src="https://github.com/aaronowusu/Twitter/assets/34800051/ea86f12d-2626-464b-80b9-4c48c2981a71">
 
 
 ### Log In
+<img width="1440" alt="Login" src="https://github.com/aaronowusu/Twitter/assets/34800051/28e2f330-7d77-4081-8606-75e93b50e711">
 
 
 
@@ -76,7 +78,7 @@ To run this project locally, follow these steps:
 ### Likes and Notifications
 
 
-### Contributing
+## Contributing
 Contributions are welcome! If you find any issues or have suggestions, please feel free to open an issue or submit a pull request.
 
 License
