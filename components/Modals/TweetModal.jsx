@@ -1,10 +1,8 @@
 import React, { useCallback, useEffect, useState} from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-import { useRouter } from 'next/router';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useMediaQuery } from '@mui/material';
 import useCurrentUser from '@/hooks/useCurrentUser';
-import useUser from '@/hooks/useUser';
 import { toast } from 'react-hot-toast';
 import useTweetModal from '@/hooks/useTweetModal';
 import axios from 'axios';
@@ -21,7 +19,7 @@ function TweetModal() {
   const [body, setBody] = useState('');
   const [isPlaceholderVisible, setIsPlaceholderVisible] = useState(true);
   const [disabled, setDisabled] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+
 
   const handleInputChange = (event) => {
     const text = event.target.innerText;
@@ -45,7 +43,6 @@ function TweetModal() {
   };
 
   const submitHandler = useCallback(async () => {
-    console.log(body)
     try {
         setIsLoading(true);
         await axios.post('/api/posts',{ body });
@@ -75,7 +72,7 @@ function TweetModal() {
   return (
     <>
       <div className=' backdrop flex justify-center items-center fixed inset-0  z-50 outline-none focus:outline-none bg-neutral-800 bg-opacity-70'>
-        <div className='relative w-full h-full md:w-[600px] md:h-[40%] bg-black rounded-xl md:fixed md:top-20 pb-4'>
+        <div className='relative w-full h-full md:w-[600px] md:h-[40%] dark:bg-black bg-white rounded-xl md:fixed md:top-20 pb-4'>
           <div className='top_section flex px-4 h-[53px] w-full justify-between items-center grow '>
             <div className='close_button '>
               <button
@@ -83,11 +80,11 @@ function TweetModal() {
                 className='focus:outline-none hover:opacity-80 transition items-center'
               >
                 <AiOutlineClose
-                  className='ms:hidden md:block text-white text-2xl'
+                  className='ms:hidden md:block dark:text-white text-2xl'
                   size={20}
                 />
                 {!isMediumScreen && (
-                  <ArrowBackIcon className='text-white text-2xl' size={20} />
+                  <ArrowBackIcon className='dark:text-white text-2xl' size={20} />
                 )}
               </button>
             </div>
@@ -112,7 +109,7 @@ function TweetModal() {
                   className='border-1 dark:border-black border-white mr-3'
                 />
                 <div className='flex flex-col w-4/5 gap-2'>
-                  <div className='border-[#536471] border rounded-lg h-6 flex flex-row justify-center items-center px-3 w-28 cursor-pointer'>
+                  <div className='dark:border-[#536471] border rounded-lg h-6 flex flex-row justify-center items-center px-3 w-28 cursor-pointer'>
                     <span className='text-twitter-blue text-sm font-bold'>
                       Everyone
                     </span>
@@ -131,7 +128,7 @@ function TweetModal() {
 
                   <div
                     contentEditable
-                    className='w-full outline-none bg-transparent text-white text-xl  min-h-[96px] overflow-hidden py-3'
+                    className='w-full outline-none bg-transparent dark:text-white text-xl  min-h-[96px] overflow-hidden py-3'
                     onInput={handleInputChange}
                     dangerouslySetInnerHTML={{ __html: isPlaceholderVisible ? "<span class='text-gray-500'>What's Happening?!</span>" : "" }}
                   
@@ -163,7 +160,7 @@ function TweetModal() {
               <Divider light className='bg-search-text-color' />
               <div className='flex flex-row justify-between items-center h-12'>
                 <div className='icons flex flex-row'>
-                  <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+                  <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
                     <svg
                       viewBox='0 0 24 24'
                       aria-hidden='true'
@@ -174,7 +171,7 @@ function TweetModal() {
                       </g>
                     </svg>
                   </div>
-                  <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+                  <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
                     <svg
                       viewBox='0 0 24 24'
                       aria-hidden='true'
@@ -185,7 +182,7 @@ function TweetModal() {
                       </g>
                     </svg>
                   </div>
-                  <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+                  <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
                     <svg
                       viewBox='0 0 24 24'
                       aria-hidden='true'
@@ -196,7 +193,7 @@ function TweetModal() {
                       </g>
                     </svg>
                   </div>
-                  <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+                  <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
                     <svg
                       viewBox='0 0 24 24'
                       aria-hidden='true'
@@ -207,7 +204,7 @@ function TweetModal() {
                       </g>
                     </svg>
                   </div>
-                  <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+                  <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
                     <svg
                       viewBox='0 0 24 24'
                       aria-hidden='true'

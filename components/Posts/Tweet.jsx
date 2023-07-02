@@ -77,7 +77,7 @@ const Tweet = () => {
 
           <div
             contentEditable
-            className='w-full outline-none bg-transparent text-white text-xl  min-h-[96px] overflow-hidden py-3 md:max-w-sm lg:max-w-md 2xl:max-w-xl'
+            className='w-full outline-none bg-transparent dark:text-white text-xl  min-h-[96px] overflow-hidden py-3 md:max-w-sm lg:max-w-md 2xl:max-w-xl'
             onInput={handleInputChange}
             dangerouslySetInnerHTML={{
               __html: isPlaceholderVisible
