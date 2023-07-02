@@ -5,6 +5,8 @@ This is a Twitter clone project built with modern web technologies:
 - **Frontend**: Next.js, React, and Tailwind CSS
 - **Backend**: MongoDB and Prisma
 
+<img width="1440" alt="website" src="https://github.com/aaronowusu/Twitter/assets/34800051/2e07a080-f0f5-4892-91a3-3b4d4f0669d2">
+
 
 ## Live Demo
 
@@ -25,7 +27,7 @@ Please note that the live demo may not reflect the latest version of the code an
 To run this project locally, follow these steps:
 
 1. Clone the repository
-<img width="1440" alt="website" src="https://github.com/aaronowusu/Twitter/assets/34800051/2e07a080-f0f5-4892-91a3-3b4d4f0669d2">
+
 
    ```bash
    git clone https://github.com/aaronowusu/Twitter.git
