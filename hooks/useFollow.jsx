@@ -37,9 +37,9 @@ const useFollow = (userId) => {
       const updatedUser = response.data.updatedUser;
 
       if (isFollowing) {
-        toast.error(`Unfollowed ${updatedUser.name}`);
+        toast.error('Unfollowed ');
       } else {
-        toast.success(`Followed ${updatedUser.name}`);
+        toast.success('Followed ');
       }
 
       mutateCurrentUser();

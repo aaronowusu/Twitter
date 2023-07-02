@@ -70,7 +70,7 @@ const ReplyForm = ({ data }) => {
 
         <div className='flex flex-row justify-between items-center h-12 w-full'>
           <div className='icons flex flex-row'>
-            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
+            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer' onClick={() => toast.error('This feature is not available yet')}>
               <svg
                 viewBox='0 0 24 24'
                 aria-hidden='true'
@@ -81,7 +81,7 @@ const ReplyForm = ({ data }) => {
                 </g>
               </svg>
             </div>
-            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
+            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer' onClick={() => toast.error('This feature is not available yet')}>
               <svg
                 viewBox='0 0 24 24'
                 aria-hidden='true'
@@ -92,7 +92,7 @@ const ReplyForm = ({ data }) => {
                 </g>
               </svg>
             </div>
-            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
+            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer' onClick={() => toast.error('This feature is not available yet')}>
               <svg
                 viewBox='0 0 24 24'
                 aria-hidden='true'
@@ -103,7 +103,7 @@ const ReplyForm = ({ data }) => {
                 </g>
               </svg>
             </div>
-            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
+            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer' onClick={() => toast.error('This feature is not available yet')}>
               <svg
                 viewBox='0 0 24 24'
                 aria-hidden='true'
@@ -114,7 +114,7 @@ const ReplyForm = ({ data }) => {
                 </g>
               </svg>
             </div>
-            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
+            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer' onClick={() => toast.error('This feature is not available yet')}>
               <svg
                 viewBox='0 0 24 24'
                 aria-hidden='true'
