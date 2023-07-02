@@ -5,7 +5,7 @@ import CommentItem from './CommentItem';
 const CommentFeed = ({ comments }) => {
   return (
     <>
-      <Divider className='bg-widget-border ' />
+      <Divider className='dark:bg-widget-border ' />
       {comments?.map((comment) => (
         <CommentItem key={comment.id} data={comment} />
       ))}

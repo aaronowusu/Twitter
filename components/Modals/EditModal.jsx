@@ -10,15 +10,12 @@ import useUser from '@/hooks/useUser';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
 
- 
 function EditModal() {
   const router = useRouter();
   const { currentUser } = useCurrentUser();
   const { mutate: mutateFetchedUser } = useUser(currentUser?.id);
   const isMediumScreen = useMediaQuery('(min-width: 768px)');
   const editModal = useEditModal();
-  // const session = getSession();
-  // console.log(session);
 
   const [profileImage, setProfileImage] = useState(
     currentUser?.profileImage || ''
@@ -41,45 +38,40 @@ function EditModal() {
 
   const closeHandler = () => {
     editModal.close();
-   
   };
 
   const editBirthdayHandler = (e) => {
     e.preventDefault();
+    toast.error('This feature is not available yet');
   };
-  const submitHandler = useCallback(
-    async () => {
-      // event.preventDefault();
-
-      try {
-        setIsLoading(true);
-        await axios.patch('/api/edit', {
-          profileImage,
-          coverImage,
-          name,
-          username,
-          bio,
-        });
-        mutateFetchedUser();
-        toast.success('Profile updated successfully');
-        editModal.close();
-      } catch (error) {
-        console.log(error);
-        toast.error('Something went wrong, please try again later');
-      } finally {
-        setIsLoading(false);
-      }
-    },
-    [
-      bio,
-      coverImage,
-      mutateFetchedUser,
-      name,
-      profileImage,
-      username,
-      editModal,
-    ]
-  );
+  const submitHandler = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      await axios.patch('/api/edit', {
+        profileImage,
+        coverImage,
+        name,
+        username,
+        bio,
+      });
+      mutateFetchedUser();
+      toast.success('Profile updated successfully');
+      editModal.close();
+    } catch (error) {
+      console.log(error);
+      toast.error('Something went wrong, please try again later');
+    } finally {
+      setIsLoading(false);
+    }
+  }, [
+    bio,
+    coverImage,
+    mutateFetchedUser,
+    name,
+    profileImage,
+    username,
+    editModal,
+  ]);
 
   useEffect(() => {
     if (editModal.isOpen) {
@@ -96,7 +88,7 @@ function EditModal() {
   return (
     <>
       <div className=' backdrop flex justify-center items-center fixed inset-0  z-50 outline-none focus:outline-none bg-neutral-800 bg-opacity-70'>
-        <div className='relative w-full h-full md:w-[600px] md:h-[650px] bg-black rounded-xl'>
+        <div className='relative w-full h-full md:w-[600px] md:h-[650px] dark:bg-black bg-search-bg-color-light rounded-xl'>
           <div className='top_section flex px-4 h-[53px] w-full justify-between items-center grow'>
             <div className='close_button '>
               <button
@@ -104,15 +96,18 @@ function EditModal() {
                 className='focus:outline-none hover:opacity-80 transition items-center'
               >
                 <AiOutlineClose
-                  className='ms:hidden md:block text-white text-2xl'
+                  className='ms:hidden md:block dark:text-white text-2xl'
                   size={20}
                 />
                 {!isMediumScreen && (
-                  <ArrowBackIcon className='text-white text-2xl' size={20} />
+                  <ArrowBackIcon
+                    className='dark:text-white text-2xl'
+                    size={20}
+                  />
                 )}
               </button>
             </div>
-            <div className='title dark:text-white whitespace-nowrap '>
+            <div className='title dark:dark:text-white whitespace-nowrap '>
               Edit Profile
             </div>
             <div className=' flex justify-end '>
@@ -124,9 +119,14 @@ function EditModal() {
               </button>
             </div>
           </div>
-          {/*content*/}
           <div className='w-full mx-auto flex flex-col gap-10'>
-            <UserHeroEdit userId={currentUser?.id} setProfileImage={setProfileImage} profileImage={profileImage} coverImage={coverImage} setCoverImage={setCoverImage} />
+            <UserHeroEdit
+              userId={currentUser?.id}
+              setProfileImage={setProfileImage}
+              profileImage={profileImage}
+              coverImage={coverImage}
+              setCoverImage={setCoverImage}
+            />
             <div className='g'></div>
             <div className=' max-w-[600px] w-full px-8 m-auto'>
               <form className='flex flex-col gap-2'>
@@ -134,7 +134,7 @@ function EditModal() {
                   <input
                     type='text'
                     id='name'
-                    className='w-full h-full bg-transparent border border-search-text-color text-white focus:outline-none focus:border-twitter-blue px-4 pt-4 pb-2 rounded-lg text-sm'
+                    className='w-full h-full bg-transparent border border-search-text-color dark:text-white focus:outline-none focus:border-twitter-blue px-4 pt-4 pb-2 rounded-lg text-sm'
                     value={name}
                     onChange={(event) => setName(event.target.value)}
                   />
@@ -151,7 +151,7 @@ function EditModal() {
                     type='text'
                     id='bio'
                     value={bio}
-                    className='w-full h-full bg-transparent border border-search-text-color text-white text-sm focus:outline-none focus:border-twitter-blue px-4 pt-4 pb-2 rounded-lg'
+                    className='w-full h-full bg-transparent border border-search-text-color dark:text-white text-sm focus:outline-none focus:border-twitter-blue px-4 pt-4 pb-2 rounded-lg'
                     onChange={(event) => setBio(event.target.value)}
                   />
                   <label
@@ -165,7 +165,7 @@ function EditModal() {
                   <input
                     type='text'
                     id='location'
-                    className='w-full h-full bg-transparent border border-search-text-color text-white focus:outline-none focus:border-twitter-blue px-4 pt-4 pb-2 rounded-lg text-sm'
+                    className='w-full h-full bg-transparent border border-search-text-color dark:text-white focus:outline-none focus:border-twitter-blue px-4 pt-4 pb-2 rounded-lg text-sm'
                     placeholder='City, Country'
                   />
                   <label
@@ -179,7 +179,7 @@ function EditModal() {
                   <input
                     type='text'
                     id='website'
-                    className='w-full h-full bg-transparent border border-search-text-color text-white focus:outline-none focus:border-twitter-blue px-4 pt-4 pb-2 rounded-lg text-sm'
+                    className='w-full h-full bg-transparent border border-search-text-color dark:text-white focus:outline-none focus:border-twitter-blue px-4 pt-4 pb-2 rounded-lg text-sm'
                     placeholder='https://'
                   />
                   <label
@@ -204,11 +204,16 @@ function EditModal() {
                       </button>
                     </span>
                   </div>
-                  <div className='leading-6 font-normal text-white text-xl'>
+                  <div className='leading-6 font-normal dark:text-white text-xl'>
                     1 January 0000
                   </div>
 
-                  <div className=' text-white text-xl  mt-2 flex flex-row py-2 justify-between items-center dark:hover:bg-search-bg-color-dark hover:bg-search-bg-color-light cursor-pointer'>
+                  <div
+                    className=' dark:text-white text-xl  mt-2 flex flex-row py-2 justify-between items-center dark:hover:bg-search-bg-color-dark hover:bg-search-bg-color-light cursor-pointer'
+                    onClick={() =>
+                      toast.error('This feature is not available yet')
+                    }
+                  >
                     <div>Switch to professional</div>
                     <div>
                       <svg

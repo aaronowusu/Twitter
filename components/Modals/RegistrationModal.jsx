@@ -62,12 +62,11 @@ function RegistrationModal() {
         await signIn('credentials', {
           email,
           password,
-          redirect:'/home'
+          redirect: '/home',
         });
         spinnerHandler();
         registrationModal.close();
       } catch (error) {
-        console.log(error);
         toast.error('Something went wrong');
       }
     },

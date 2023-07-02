@@ -7,11 +7,12 @@ import axios from 'axios';
 const useFollow = (userId) => {
   const { currentUser, mutate: mutateCurrentUser } = useCurrentUser();
   const { mutate: mutateFetchedUser } = useUser(userId);
+  console.log(userId);
 
   const isFollowing = useMemo(() => {
     const list = currentUser?.followingIds || [];
     return list.includes(userId);
-  }, [currentUser?.followingIds, userId]);
+  }, [currentUser, userId]);
 
   const toggleFollow = useCallback(async () => {
     if (!currentUser) {
@@ -31,19 +32,24 @@ const useFollow = (userId) => {
           userId,
         });
       }
-      await request;
+
+      const response = await request;
+      const updatedUser = response.data.updatedUser;
+
+      if (isFollowing) {
+        toast.error(`Unfollowed ${updatedUser.name}`);
+      } else {
+        toast.success(`Followed ${updatedUser.name}`);
+      }
+
       mutateCurrentUser();
       mutateFetchedUser();
-      if (isFollowing) {
-        toast.error('Unfollowed');
-        return;
-      }
-      toast.success('Followed');
     } catch (err) {
       console.log(err);
-      toast.error('Failed to follow user');
+      toast.error('Failed to follow/unfollow user');
     }
   }, [currentUser, isFollowing, mutateCurrentUser, mutateFetchedUser, userId]);
+
   return {
     isFollowing,
     toggleFollow,

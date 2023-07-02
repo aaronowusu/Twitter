@@ -75,7 +75,8 @@ export default async function handler(req, res) {
         },
     });
 
-    return res.status(200).json({updatedPost});
+    const likeCount = updatedPost.likedIds.length;
+    return res.status(200).json({updatedPost, likeCount});
   } catch (err) {
     console.log(err);
     return res.status(400).end();

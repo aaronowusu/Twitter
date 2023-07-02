@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Avatar } from '@mui/material';
 import useCurrentUser from '@/hooks/useCurrentUser';
-import { Divider } from '@mui/material';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import usePosts from '@/hooks/usePosts';
@@ -60,7 +59,7 @@ const ReplyForm = ({ data }) => {
       <div className='flex flex-col gap-2 w-4/5 '>
         <div
           contentEditable
-          className='w-full outline-none bg-transparent text-white text-xl  min-h-[96px] overflow-hidden py-3 md:max-w-sm lg:max-w-md 2xl:max-w-xl'
+          className='w-full outline-none bg-transparent dark:text-white text-xl  min-h-[96px] overflow-hidden py-3 md:max-w-sm lg:max-w-md 2xl:max-w-xl'
           onInput={handleInputChange}
           dangerouslySetInnerHTML={{
             __html: isPlaceholderVisible
@@ -71,7 +70,7 @@ const ReplyForm = ({ data }) => {
 
         <div className='flex flex-row justify-between items-center h-12 w-full'>
           <div className='icons flex flex-row'>
-            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
               <svg
                 viewBox='0 0 24 24'
                 aria-hidden='true'
@@ -82,7 +81,7 @@ const ReplyForm = ({ data }) => {
                 </g>
               </svg>
             </div>
-            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
               <svg
                 viewBox='0 0 24 24'
                 aria-hidden='true'
@@ -93,7 +92,7 @@ const ReplyForm = ({ data }) => {
                 </g>
               </svg>
             </div>
-            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
               <svg
                 viewBox='0 0 24 24'
                 aria-hidden='true'
@@ -104,7 +103,7 @@ const ReplyForm = ({ data }) => {
                 </g>
               </svg>
             </div>
-            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
               <svg
                 viewBox='0 0 24 24'
                 aria-hidden='true'
@@ -115,7 +114,7 @@ const ReplyForm = ({ data }) => {
                 </g>
               </svg>
             </div>
-            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+            <div className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light  rounded-full cursor-pointer'>
               <svg
                 viewBox='0 0 24 24'
                 aria-hidden='true'

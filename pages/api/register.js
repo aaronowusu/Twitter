@@ -9,7 +9,11 @@ export default async function handler(req, res) {
 
   try {
     const { email, username, name, password } = req.body;
-    console.log(req.body);
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      throw new Error('Invalid email format');
+    }
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -24,7 +28,6 @@ export default async function handler(req, res) {
 
     return res.status(200).json(user);
   } catch (error) {
-    console.log(error);
     return res.status(400).end();
   }
 }

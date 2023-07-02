@@ -40,7 +40,7 @@ function Post() {
           </div>
         </div>
       </div>
-      <main className='flex justify-start items-start  h-screen w-full overflow-y-auto scrollbar-thin scrollbar-thumb-widget-border scrollbar-track-transparent '>
+      <main className='flex justify-start items-start  h-screen w-full overflow-y-auto scrollbar-thin dakr:scrollbar-thumb-widget-border scrollbar-track-transparent '>
         <div className='mt-[53px] w-full'>
           <PostItem data={fetchedPost} />
           <ReplyForm data={fetchedPost} />

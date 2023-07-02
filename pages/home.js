@@ -103,7 +103,7 @@ const Home = () => {
           </div>
         </nav>
       </div>
-      <main className='flex justify-start items-start  h-screen w-full overflow-y-auto scrollbar-thin scrollbar-thumb-widget-border scrollbar-track-transparent '>
+      <main className='flex justify-start items-start  h-screen w-full overflow-y-auto scrollbar-thin dark:scrollbar-thumb-widget-border   scrollbar-track-transparent '>
         <div
           className={` mt-[102px] w-full ${
             activeTab === 'foryou' ? 'block' : 'hidden'
@@ -112,7 +112,7 @@ const Home = () => {
           <div className='for you ms:hidden md:block py-3  px-4'>
             <Tweet />
           </div>
-          <Divider className='bg-widget-border ' />
+          <Divider className='dark:bg-widget-border ' />
           <PostFeedFY userId={currentUser?.id} />
         </div>
         <div
@@ -123,7 +123,7 @@ const Home = () => {
           <div className='following ms:hidden md:block py-3  px-4 '>
             <Tweet />
           </div>
-          <Divider className='bg-widget-border' />
+          <Divider className='dark:bg-widget-border' />
           <PostFeedF userId={currentUser?.id} />
         </div>
 

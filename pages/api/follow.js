@@ -23,10 +23,12 @@ export default async function handler(req, res) {
       throw new Error('User not found');
     }
 
-    let updatedFollowingIds = [...(user.followingIds || [])];
+    let updatedFollowingIds = [...(currentUser.followingIds || [])];
 
     if (req.method === 'POST') {
-      updatedFollowingIds.push(userId);
+      if (!updatedFollowingIds.includes(userId)) {
+        updatedFollowingIds.push(userId);
+      }
       try {
         await prisma.notification.create({
           data: {

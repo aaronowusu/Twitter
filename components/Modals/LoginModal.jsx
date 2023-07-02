@@ -156,7 +156,7 @@ function LoginModal() {
                     placeholder='Enter your password'
                     onChange={buttonHandler}
                   />
-                  <div className='forgot_password w-full'>
+                  <div className='forgot_password w-full' onClick={() => toast.error('This feature is not available yet')}>
                     <a href='#' className='text-sm text-twitter-blue'>
                       Forgot password?
                     </a>

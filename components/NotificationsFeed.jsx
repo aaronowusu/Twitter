@@ -24,9 +24,9 @@ const NotificationsFeed = () => {
         return (
           <div
             key={notification.id}
-            className='flex flex-row items-center p-6 gap-4 border-b border-hover-grey  '
+            className='flex flex-row items-center p-6 gap-4 border-b dark:border-hover-grey dark:hover:bg-list-hover hover:bg-search-bg-color-light opacity-95 '
           >
-            <BsTwitter color='white' size={32} />
+            <BsTwitter className='text-twitter-blue dark:text-white' size={32} />
             <p className='dark:text-white'>{notification.body}</p>
           </div>
         );
