@@ -2,7 +2,6 @@ import React from 'react';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter } from 'next/router';
 import useUser from '@/hooks/useUser';
-import { ClipLoader } from 'react-spinners';
 import SpinnerModal from '@/components/Modals/SpinnerModal';
 import UserHero from '@/components/Users/UserHero';
 import UserBio from '@/components/Users/UserBio';
@@ -28,8 +27,8 @@ const UserView = () => {
   const amountOfPosts = postsArray?.length || 0;
 
   return (
-    <div className='h-screen dark:text-white overflow-y-auto scrollbar-thin scrollbar-thumb-widget-border scrollbar-track-transparent '>
-      <div className='Header sticky z-10 top-0  py-2 px-4 h-[53px] w-full dark:bg-black flex items-center '>
+    <div className='h-screen dark:text-white overflow-y-auto scrollbar-none scrollbar-track-transparent '>
+      <div className='Header sticky z-10 top-0  py-2 px-4 h-[53px] w-full dark:bg-black bg-white flex items-center border-b border-search-bg-color-light dark:border-widget-border'>
         <div className='backArrow min-h-[32px] min-w-[52px] flex  item-center '>
           <ArrowBackIcon
             className='cursor-pointer'

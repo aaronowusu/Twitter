@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import Drawer from '../Navigation/MessagesDrawer';
 import useUsers from '@/hooks/useUsers';
 
+
 const Widgets = () => {
   const registrationModal = useRegistrationModal();
   const [isLogged, setIsLogged] = useState(false);
@@ -28,6 +29,8 @@ const Widgets = () => {
   const handleCloseDrawer = () => {
     setIsDrawerOpen(false);
   };
+
+
 
   const router = useRouter();
   useEffect(() => {
@@ -53,7 +56,7 @@ const Widgets = () => {
 
   const firstThreeUsers = filteredFollowSuggestions.slice(0, 3);
 
-  const showWidget = firstThreeUsers.length === 0;
+  const showWidget = firstThreeUsers.length !== 0;
 
   return (
     <>
@@ -153,7 +156,7 @@ const Widgets = () => {
           {isLogged && (
             <div className='follow  hidden lg:block mt-10'>
               <div className={` ${!isHomePage ? 'fixed top-5' : ''}  `}>
-                {!showWidget && (
+                {showWidget && (
                   <section className='flex flex-col py-3 bg-search-bg-color-light dark:bg-search-bg-color-dark rounded-2xl w-[320px]'>
                     <div className='text-left px-2'>
                       <h2 className='text-xl font-bold dark:text-white '>

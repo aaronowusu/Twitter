@@ -1,12 +1,9 @@
-import React, {useState,useEffect,useCallback} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Avatar, Divider } from '@mui/material';
 import useCurrentUser from '@/hooks/useCurrentUser';
-import useUser from '@/hooks/useUsers';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import usePosts from '@/hooks/usePosts';
-
-
 
 const Tweet = () => {
   const { currentUser } = useCurrentUser();
@@ -35,17 +32,17 @@ const Tweet = () => {
     try {
       setIsLoading(true);
       await axios.post('/api/posts', {
-          body
+        body,
       });
-      
+
       toast.success('Tweet sent successfully');
       setBody('');
       mutatePosts();
       setIsPlaceholderVisible(true);
-  } catch (error) {
-    console.log(error);
-  } finally {
-  }
+    } catch (error) {
+      console.log(error);
+    } finally {
+    }
   }, [body, mutatePosts]);
 
   return (
@@ -58,7 +55,10 @@ const Tweet = () => {
           className='border-1 dark:border-black border-white mr-3'
         />
         <div className='flex flex-col  gap-2'>
-          <div className='border-[#536471] border rounded-lg h-6 flex flex-row justify-center items-center px-3 w-28 cursor-pointer'>
+          <div
+            className='dark:border-[#536471] border rounded-lg h-6 flex flex-row justify-center items-center px-3 w-28 cursor-pointer'
+            onClick={() => toast.error('This feature is not available yet')}
+          >
             <span className='text-twitter-blue text-sm font-bold'>
               Everyone
             </span>
@@ -77,7 +77,7 @@ const Tweet = () => {
 
           <div
             contentEditable
-            className='w-full outline-none bg-transparent text-white text-xl  min-h-[96px] overflow-hidden py-3 md:max-w-sm lg:max-w-md 2xl:max-w-xl'
+            className='w-full outline-none bg-transparent dark:text-white text-xl  min-h-[96px] overflow-hidden py-3 md:max-w-sm lg:max-w-md 2xl:max-w-xl'
             onInput={handleInputChange}
             dangerouslySetInnerHTML={{
               __html: isPlaceholderVisible
@@ -104,10 +104,13 @@ const Tweet = () => {
         </span>
       </div>
 
-      <Divider light className='bg-search-text-color' />
+      <Divider light className='dark:bg-search-text-color' />
       <div className='flex flex-row justify-between items-center h-12'>
         <div className='icons flex flex-row'>
-          <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+          <div
+            className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light rounded-full cursor-pointer'
+            onClick={() => toast.error('This feature is not available yet')}
+          >
             <svg
               viewBox='0 0 24 24'
               aria-hidden='true'
@@ -118,7 +121,10 @@ const Tweet = () => {
               </g>
             </svg>
           </div>
-          <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+          <div
+            className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light rounded-full cursor-pointer'
+            onClick={() => toast.error('This feature is not available yet')}
+          >
             <svg
               viewBox='0 0 24 24'
               aria-hidden='true'
@@ -129,7 +135,10 @@ const Tweet = () => {
               </g>
             </svg>
           </div>
-          <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+          <div
+            className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light rounded-full cursor-pointer'
+            onClick={() => toast.error('This feature is not available yet')}
+          >
             <svg
               viewBox='0 0 24 24'
               aria-hidden='true'
@@ -140,7 +149,10 @@ const Tweet = () => {
               </g>
             </svg>
           </div>
-          <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+          <div
+            className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light rounded-full cursor-pointer'
+            onClick={() => toast.error('This feature is not available yet')}
+          >
             <svg
               viewBox='0 0 24 24'
               aria-hidden='true'
@@ -151,7 +163,10 @@ const Tweet = () => {
               </g>
             </svg>
           </div>
-          <div className='w-[34px] h-[34px] flex flex-row justify-center items-center hover:bg-hover-grey rounded-full cursor-pointer'>
+          <div
+            className='w-[34px] h-[34px] flex flex-row justify-center items-center dark:hover:bg-hover-grey hover:bg-search-bg-color-light rounded-full cursor-pointer'
+            onClick={() => toast.error('This feature is not available yet')}
+          >
             <svg
               viewBox='0 0 24 24'
               aria-hidden='true'

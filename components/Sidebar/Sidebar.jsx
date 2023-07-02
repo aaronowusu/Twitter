@@ -1,8 +1,6 @@
 import React from 'react';
-import LogoutTab from './LogoutTab';
 import Spinner from '../Spinners/Spinner';
 import SidebarPanel from './SidebarPanel';
-import AccountMenu from './AccountMenu';
 
 const Sidebar = () => {
   const spinnerHandler = () => {

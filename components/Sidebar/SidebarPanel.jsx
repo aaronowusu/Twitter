@@ -14,8 +14,7 @@ import Logo from './SidebarLogo';
 import TweetButton from './TweetButton';
 import AccountMenu from './AccountMenu';
 import useCurrentUser from '@/hooks/useCurrentUser';
-import Spinner from '../Spinners/Spinner';
-import { useState } from 'react';
+
 
 const SidebarPanel = () => {
   const { currentUser } = useCurrentUser();

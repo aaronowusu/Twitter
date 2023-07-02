@@ -4,13 +4,13 @@ import useUser from '@/hooks/useUser';
 import { useRouter } from 'next/router';
 import useFollow from '@/hooks/useFollow';
 
-const UserList = (props) => {
-  const { data: fetchedUser } = useUser(props.userId);
+const UserList = ({userId}) => {
+  const { data: fetchedUser } = useUser(userId);
   const router = useRouter();
-  const url = `/users/${props.userId}`;
+  const url = `/users/${userId}`;
 
 
-  const {isFollowing, toggleFollow} = useFollow(props.userId);
+  const {isFollowing, toggleFollow} = useFollow(fetchedUser?.id);
   
 
   return (

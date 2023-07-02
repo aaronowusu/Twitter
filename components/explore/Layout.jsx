@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import LogoutLayout from './LogoutLayout';
 import useCurrentUser from '@/hooks/useCurrentUser';
 import LoginLayout from './LoginLayout';
-import Spinner from '../Spinners/Spinner';
+import SpinnerModal from '../Modals/SpinnerModal';
 
 const ExploreLayout = (props) => {
   const { currentUser, isLoading } = useCurrentUser();
@@ -26,7 +26,7 @@ const ExploreLayout = (props) => {
           {isLoggedIn && <LoginLayout>{props.children}</LoginLayout>}
         </>
       )}
-      {isLoading && <Spinner />}
+      {isLoading && <SpinnerModal />}
     </>
   );
 };

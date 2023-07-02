@@ -1,8 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Spinner from '../Spinners/Spinner';
-import { useState } from 'react';
-import useCurrentUser from '@/hooks/useCurrentUser';
+
 
 const DrawerItem = (props) => {
   const router = useRouter();

@@ -13,9 +13,9 @@ const Notifications = () => {
             Notifications
           </h2>
         </div>
-        <Divider className='bg-hover-grey' />
+        <Divider className='dark:bg-hover-grey' />
       </div>
-      <main className='flex justify-start items-start  h-screen w-full overflow-y-auto scrollbar-thin scrollbar-thumb-widget-border scrollbar-track-transparent '>
+      <main className='flex justify-start items-start  h-screen w-full overflow-y-auto scrollbar-none scrollbar-track-transparent '>
         <div className='mt-[53px] w-full'>
           <NotificationsFeed />
         </div>

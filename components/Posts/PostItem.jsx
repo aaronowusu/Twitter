@@ -72,7 +72,7 @@ const PostItem = ({ data, userId }) => {
   return (
     <div
       onClick={goToPost}
-      className='border-b border-widget-border w-full  px-4 py-3 cursor-pointer flex flex-row items-start hover:bg-list-hover'
+      className='border-b dark:border-widget-border w-full  px-4 py-3 cursor-pointer flex flex-row items-start dark:hover:bg-list-hover hover:bg-search-bg-color-light opacity-95'
     >
       <Avatar
         alt='Default Profile Picture'
@@ -86,7 +86,7 @@ const PostItem = ({ data, userId }) => {
           <div className='flex flex-row  items-center gap-2 '>
             <span
               onClick={goToUser}
-              className='text-[15px] font-bold dark:text-white hover:underline'
+              className='text-[15px] font-bold dark:text-white text-black hover:underline'
             >
               {data?.user?.name}
             </span>
@@ -104,7 +104,7 @@ const PostItem = ({ data, userId }) => {
           <Menu />
         </div>
         <div className='body'>
-          <p className='text-[15px] dark:text-white'>{data?.body}</p>
+          <p className='text-[15px] dark:text-white text-black'>{data?.body}</p>
         </div>
         <div className='flex flex-row items-center mt-3 '>
           <div className='flex flex-row items-center text-search-text-color gap-10 cursor-pointer '>

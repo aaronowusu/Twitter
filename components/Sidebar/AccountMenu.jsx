@@ -4,7 +4,6 @@ import useCurrentUser from '@/hooks/useCurrentUser';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { signOut } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import useUser from '@/hooks/useUser';
 import SpinnerModal from '../Modals/SpinnerModal';
 

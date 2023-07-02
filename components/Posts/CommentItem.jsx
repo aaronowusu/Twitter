@@ -28,7 +28,7 @@ const CommentItem = ({ data }) => {
   }, [data.createdAt]);
   return (
     <div
-      className='border-b border-widget-border w-full  px-4 py-3 cursor-pointer flex flex-row items-start hover:bg-list-hover'
+      className='border-b dark:border-widget-border w-full  px-4 py-3 cursor-pointer flex flex-row items-start dark:hover:bg-list-hover hover:bg-search-bg-color-light'
     >
       <Avatar
         alt='Default Profile Picture'

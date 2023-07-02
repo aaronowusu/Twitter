@@ -6,7 +6,7 @@ import Menu from '../Navigation/Menu';
 import Navigation from '../Navigation/Navigation';
 import Footer from './Footer';
 import Widgets from '../Widget/Widgets';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import useSticky from '@/hooks/useSticky';
 import useSmallScreen from '@/hooks/useSmallScreen';
 import DesktopStickyNavigation from '../Navigation/DesktopStickyNavigation';

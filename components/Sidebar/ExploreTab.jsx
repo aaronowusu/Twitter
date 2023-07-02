@@ -1,22 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { HiOutlineHashtag } from 'react-icons/hi';
 import { useRouter } from 'next/router';
-import Spinner from '../Spinners/Spinner';
 
 const ExploreTab = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const makeBold = router.pathname === '/explore/tabs/for-you';
   const exploreClickHandler = async () => {
-    setIsLoading(true);
-
     await router.push('/');
-    setIsLoading(false);
   };
-  if (isLoading) {
-    // return <Spinner />;
-  }
+
   return (
     <div
       className='explore md:w-[40px] md:h-[40px] lg:w-[45px] lg:h-[45px] xl:w-auto xl:h-auto  flex flex-row items-center justify-center rounded-full dark:hover:bg-search-bg-color-dark hover:bg-search-bg-color-light  cursor-pointer xl:pl-4 '

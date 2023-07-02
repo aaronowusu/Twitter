@@ -6,8 +6,7 @@ import useLoginModal from '@/hooks/useLoginModal';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import Spinner from '../Spinners/Spinner';
+import SpinnerModal from './SpinnerModal';
 
 function RegistrationModal() {
   const registrationModal = useRegistrationModal();
@@ -19,7 +18,7 @@ function RegistrationModal() {
   const usernameRef = useRef(null);
 
   const spinnerHandler = () => {
-    return <Spinner />;
+    return <SpinnerModal />;
   };
 
   const switchModalHandler = useCallback(() => {
@@ -62,12 +61,11 @@ function RegistrationModal() {
         await signIn('credentials', {
           email,
           password,
-          redirect:'/home'
+          redirect: '/home',
         });
         spinnerHandler();
         registrationModal.close();
       } catch (error) {
-        console.log(error);
         toast.error('Something went wrong');
       }
     },
@@ -104,7 +102,6 @@ function RegistrationModal() {
             </div>
             <div className='basis-1/2'></div>
           </div>
-          {/*content*/}
           <div className='w-full mx-auto flex flex-col'>
             <div className='min-w-[364px] max-w-[364px] px-8 m-auto'>
               <div className='header'>
@@ -128,9 +125,7 @@ function RegistrationModal() {
                     onChange={buttonHandler}
                   />
                 </div>
-                {/* add name field*/}
                 <div className='name w-full px-0 py-1'>
-                  {/* add label*/}
                   <label className='text-sm text-search-text-color font-bold'>
                     Name
                   </label>
@@ -143,7 +138,6 @@ function RegistrationModal() {
                   />
                 </div>
                 <div className='email w-full px-0 py-1'>
-                  {/* add label*/}
                   <label className='text-sm text-search-text-color font-bold'>
                     Email Address
                   </label>
@@ -157,11 +151,9 @@ function RegistrationModal() {
                 </div>
 
                 <div className='password w-full px-0 py-1'>
-                  {/* add label*/}
                   <label className='text-sm text-search-text-color font-bold'>
                     Password
                   </label>
-                  {/* add button that shows password using toggle*/}
                   <input
                     type='password'
                     ref={passwordRef}

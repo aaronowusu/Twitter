@@ -1,20 +1,26 @@
-import serverAuth from "@/libs/serverAuth";
-import prisma from "@/libs/prismadb";
+import serverAuth from '@/libs/serverAuth';
+import prisma from '@/libs/prismadb';
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '5mb',
+    },
+  },
+};
 export default async function handler(req, res) {
-  if (req.method !== "PATCH") {
+  if (req.method !== 'PATCH') {
     return res.status(405).end();
   }
 
   try {
     const { currentUser } = await serverAuth(req, res);
-    
+
     const { name, username, bio, profileImage, coverImage } = req.body;
-    
+
     if (!name || !username) {
-        throw new Error("Name and username are required");
+      throw new Error('Name and username are required');
     }
-    // console.log("currentUser:", currentUser); // Log the currentUser object
 
     const updatedUser = await prisma.user.update({
       where: {
