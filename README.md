@@ -10,7 +10,7 @@ This is a Twitter clone project built with modern web technologies:
 
 ## Live Demo
 
-Check out the live demo of the Twitter clone: [Live Demo](twitter-zeta-one.vercel.app)
+Check out the live demo of the Twitter clone: [Live Demo](https://twitter-peregbhf1-aaronowusu.vercel.app)
 
 Please note that the live demo may not reflect the latest version of the code and some features might be disabled or limited for demonstration purposes.
 
@@ -88,6 +88,10 @@ To run this project locally, follow these steps:
 
 
 ## WalkThrough
+
+
+https://github.com/aaronowusu/Twitter/assets/34800051/6127c61d-67d2-4b57-b404-20d2df26c97a
+
 
 ## Contributing
 Contributions are welcome! If you find any issues or have suggestions, please feel free to open an issue or submit a pull request.
