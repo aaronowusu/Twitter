@@ -7,7 +7,7 @@ import axios from 'axios';
 const useFollow = (userId) => {
   const { currentUser, mutate: mutateCurrentUser } = useCurrentUser();
   const { mutate: mutateFetchedUser } = useUser(userId);
-  console.log(userId);
+
 
   const isFollowing = useMemo(() => {
     const list = currentUser?.followingIds || [];

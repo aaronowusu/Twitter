@@ -44,7 +44,7 @@ function TweetModal() {
 
   const submitHandler = useCallback(async () => {
     try {
-        setIsLoading(true);
+      
         await axios.post('/api/posts',{ body });
         
         toast.success('Tweet sent successfully');
