@@ -99,7 +99,7 @@ Contributions are welcome! If you find any issues or have suggestions, please fe
 
 ## Disclaimer ⚠️
 
-This Twitter clone project is developed solely for educational and learning purposes. It is not intended to deceive, impersonate, or scam anyone. The project aims to demonstrate the functionality of a social media platform like Twitter, showcasing features such as user registration, messaging, likes, and notifications.
+This Twitter clone project is developed solely for educational and learning purposes. It is not intended to deceive, impersonate, or scam anyone. The project aims to demonstrate the functionality of a social media platform like Twitter, showcasing features such as user registration, following, likes, and notifications.
 
 Please note that this Twitter clone is not affiliated with or endorsed by Twitter. It is an independent project created to simulate the user experience of a social media platform.
 
