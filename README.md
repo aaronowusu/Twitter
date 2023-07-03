@@ -10,7 +10,7 @@ This is a Twitter clone project built with modern web technologies:
 
 ## Live Demo
 
-Check out the live demo of the Twitter clone: [Live Demo](https://your-twitter-clone-demo.com)
+Check out the live demo of the Twitter clone: [Live Demo](twitter-zeta-one.vercel.app)
 
 Please note that the live demo may not reflect the latest version of the code and some features might be disabled or limited for demonstration purposes.
 
@@ -60,7 +60,7 @@ To run this project locally, follow these steps:
 
 9. Open your browser and navigate to http://localhost:3000 to access the Twitter clone.
 
-## Screenshots and Screen Recordings
+## Screenshots
 
 ### Registration
 <img width="1439" alt="Register" src="https://github.com/aaronowusu/Twitter/assets/34800051/ea86f12d-2626-464b-80b9-4c48c2981a71">
@@ -72,11 +72,22 @@ To run this project locally, follow these steps:
 
 
 
-### Following
+### Home Page
+<img width="1920" alt="Screenshot 2023-07-03 at 10 09 47" src="https://github.com/aaronowusu/Twitter/assets/34800051/4fc6c959-4821-4a29-b0cc-0dfb76d1daab">
 
 
-### Likes and Notifications
+### Profile Page
+<img width="1920" alt="Screenshot 2023-07-03 at 10 10 05" src="https://github.com/aaronowusu/Twitter/assets/34800051/0ec55701-cdef-48ac-acbf-6992f45d6f6e">
 
+
+### Notifications
+<img width="1920" alt="Screenshot 2023-07-03 at 10 10 19" src="https://github.com/aaronowusu/Twitter/assets/34800051/b1a285a6-b97a-4b0e-98b6-e5b775c3c70c">
+
+### Tweet
+<img width="1920" alt="Screenshot 2023-07-03 at 10 10 51" src="https://github.com/aaronowusu/Twitter/assets/34800051/857b62d9-8def-44f5-bfeb-f61f3e3fde50">
+
+
+## WalkThrough
 
 ## Contributing
 Contributions are welcome! If you find any issues or have suggestions, please feel free to open an issue or submit a pull request.
