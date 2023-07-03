@@ -1,38 +1,106 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Twitter Clone
 
-## Getting Started
+This is a Twitter clone project built with modern web technologies:
 
-First, run the development server:
+- **Frontend**: Next.js, React, and Tailwind CSS
+- **Backend**: MongoDB and Prisma
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+<img width="1440" alt="website" src="https://github.com/aaronowusu/Twitter/assets/34800051/2e07a080-f0f5-4892-91a3-3b4d4f0669d2">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Live Demo
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Check out the live demo of the Twitter clone: [Live Demo](twitter-zeta-one.vercel.app)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Please note that the live demo may not reflect the latest version of the code and some features might be disabled or limited for demonstration purposes.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
 
-## Learn More
+- Registration and Login
+- Likes and Notifications
+- Follow
+- Edit User Profile
+- Tweets
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run this project locally, follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/aaronowusu/Twitter.git
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+2. Navigate to the project directory and install dependencies
+   ```bash
+   npm install
+
+5. Set up environment variables
+   
+   Create a .env file and add the environment variables with your configuration values:
+   ```bash
+      DATABASE_URL=""
+      JWT_SECRET=''
+      SECRET=''   
+
+6. Set up the database
+   - Install MongoDB if you haven't already
+   - Create a new database for the project 
+   - Update the Prisma database db in schema.prisma if needed
+
+7. Run database migrations
+   ```bash  
+   npx prisma migrate dev
+
+8. Start the development server
+   ```bash
+   npm run dev
+
+9. Open your browser and navigate to http://localhost:3000 to access the Twitter clone.
+
+## Screenshots
+
+### Registration
+<img width="1439" alt="Register" src="https://github.com/aaronowusu/Twitter/assets/34800051/ea86f12d-2626-464b-80b9-4c48c2981a71">
+
+
+### Log In
+<img width="1440" alt="Login" src="https://github.com/aaronowusu/Twitter/assets/34800051/28e2f330-7d77-4081-8606-75e93b50e711">
+
+
+
+
+### Home Page
+<img width="1920" alt="Screenshot 2023-07-03 at 10 09 47" src="https://github.com/aaronowusu/Twitter/assets/34800051/4fc6c959-4821-4a29-b0cc-0dfb76d1daab">
+
+
+### Profile Page
+<img width="1920" alt="Screenshot 2023-07-03 at 10 10 05" src="https://github.com/aaronowusu/Twitter/assets/34800051/0ec55701-cdef-48ac-acbf-6992f45d6f6e">
+
+
+### Notifications
+<img width="1920" alt="Screenshot 2023-07-03 at 10 10 19" src="https://github.com/aaronowusu/Twitter/assets/34800051/b1a285a6-b97a-4b0e-98b6-e5b775c3c70c">
+
+### Tweet
+<img width="1920" alt="Screenshot 2023-07-03 at 10 10 51" src="https://github.com/aaronowusu/Twitter/assets/34800051/857b62d9-8def-44f5-bfeb-f61f3e3fde50">
+
+
+## WalkThrough
+
+## Contributing
+Contributions are welcome! If you find any issues or have suggestions, please feel free to open an issue or submit a pull request.
+
+License
+This project is licensed under the MIT License.
+
+## Disclaimer ⚠️
+
+This Twitter clone project is developed solely for educational and learning purposes. It is not intended to deceive, impersonate, or scam anyone. The project aims to demonstrate the functionality of a social media platform like Twitter, showcasing features such as user registration, messaging, likes, and notifications.
+
+Please note that this Twitter clone is not affiliated with or endorsed by Twitter. It is an independent project created to simulate the user experience of a social media platform.
+
+If you have any concerns, questions, or suggestions regarding this project, please feel free to reach out to me.
+
+
