@@ -90,14 +90,12 @@ To run this project locally, follow these steps:
 ## WalkThrough
 
 
-https://github.com/aaronowusu/Twitter/assets/34800051/6127c61d-67d2-4b57-b404-20d2df26c97a
+https://github.com/aaronowusu/Twitter/assets/34800051/42c95aa6-7ee3-4014-937e-097fc9905896
 
 
 ## Contributing
 Contributions are welcome! If you find any issues or have suggestions, please feel free to open an issue or submit a pull request.
 
-License
-This project is licensed under the MIT License.
 
 ## Disclaimer ⚠️
 
