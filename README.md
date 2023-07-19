@@ -5,7 +5,8 @@ This is a Twitter clone project built with modern web technologies:
 - **Frontend**: Next.js, React, and Tailwind CSS
 - **Backend**: MongoDB and Prisma
 
-<img width="1440" alt="website" src="https://github.com/aaronowusu/Twitter/assets/34800051/2e07a080-f0f5-4892-91a3-3b4d4f0669d2">
+
+<img width="1440" alt="website" src="https://github.com/aaronowusu/Twitter/assets/34800051/83b5881a-9e90-4bac-a2b5-7f221c6005af">
 
 
 ## Live Demo
@@ -63,34 +64,42 @@ To run this project locally, follow these steps:
 ## Screenshots
 
 ### Registration
-<img width="1439" alt="Register" src="https://github.com/aaronowusu/Twitter/assets/34800051/ea86f12d-2626-464b-80b9-4c48c2981a71">
+<img width="1439" alt="Register" src="https://github.com/aaronowusu/Twitter/assets/34800051/7ed8c2f6-cb58-483d-af0c-58065757ef82">
 
 
 ### Log In
-<img width="1440" alt="Login" src="https://github.com/aaronowusu/Twitter/assets/34800051/28e2f330-7d77-4081-8606-75e93b50e711">
+
+<img width="1440" alt="Login" src="https://github.com/aaronowusu/Twitter/assets/34800051/d755dc63-e8da-429d-869f-a7429b8f6326">
+
 
 
 
 
 ### Home Page
-<img width="1920" alt="Screenshot 2023-07-03 at 10 09 47" src="https://github.com/aaronowusu/Twitter/assets/34800051/4fc6c959-4821-4a29-b0cc-0dfb76d1daab">
+<img width="1440" alt="Home" src="https://github.com/aaronowusu/Twitter/assets/34800051/ce3db7c0-1c81-4789-82e3-0bcd6da917d9">
 
 
 ### Profile Page
-<img width="1920" alt="Screenshot 2023-07-03 at 10 10 05" src="https://github.com/aaronowusu/Twitter/assets/34800051/0ec55701-cdef-48ac-acbf-6992f45d6f6e">
+<img width="1440" alt="Profile" src="https://github.com/aaronowusu/Twitter/assets/34800051/63029573-10bb-493d-9cb1-fdecf0d247ca">
+
 
 
 ### Notifications
-<img width="1920" alt="Screenshot 2023-07-03 at 10 10 19" src="https://github.com/aaronowusu/Twitter/assets/34800051/b1a285a6-b97a-4b0e-98b6-e5b775c3c70c">
+<img width="1429" alt="Notification" src="https://github.com/aaronowusu/Twitter/assets/34800051/91e315d2-546d-4197-b55a-1b83908f7064">
+
 
 ### Tweet
-<img width="1920" alt="Screenshot 2023-07-03 at 10 10 51" src="https://github.com/aaronowusu/Twitter/assets/34800051/857b62d9-8def-44f5-bfeb-f61f3e3fde50">
+
+<img width="1440" alt="Tweet" src="https://github.com/aaronowusu/Twitter/assets/34800051/df74592d-57ee-49f1-a335-532ac6b6d71e">
 
 
 ## WalkThrough
 
 
-https://github.com/aaronowusu/Twitter/assets/34800051/42c95aa6-7ee3-4014-937e-097fc9905896
+https://github.com/aaronowusu/Twitter/assets/34800051/b0c98dc2-515e-4f25-bcf6-358276d91f22
+
+
+
 
 
 ## Contributing
